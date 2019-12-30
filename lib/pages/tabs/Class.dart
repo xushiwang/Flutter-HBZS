@@ -10,7 +10,8 @@ class ClassPage extends StatefulWidget {
 
 class _ClassPageState extends State<ClassPage> {
   List<Widget> _getListData(){
-    var tempList = classData.map((value){
+    //var tempInit=[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}];
+    var tempList =classData.map((value){
       return Container(
         child: Column(
           children: <Widget>[
@@ -47,7 +48,7 @@ class _ClassPageState extends State<ClassPage> {
             title: Text(
               "第十六周",
               style: TextStyle(
-                color: Colors.grey,
+                color: Colors.black,
               ),),
             bottom: TabBar(
               indicatorColor: Color.fromARGB(255, 216,30, 6),//指示器颜色
