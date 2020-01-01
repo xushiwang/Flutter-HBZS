@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hbzs/pages/IndexPage/Send.dart';
 import 'package:hbzs/pages/tabs/MyDrawer.dart';
 import 'package:hbzs/res/customview.dart';
 class IndexPage extends StatefulWidget {
@@ -25,6 +26,12 @@ class _IndexPageState extends State<IndexPage> {
               color: Colors.black,
               onPressed: (){
                 print("打开发布动态页面");
+                // Navigator.of(context).push(
+                //   MaterialPageRoute(
+                //     builder: (context)=>SendPage()
+                //   )
+                // );
+                Navigator.pushNamed(context, '/edit');
               },
             )
           ],

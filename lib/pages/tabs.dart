@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hbzs/pages/tabs/MyDrawer.dart';
 import 'tabs/Class.dart';
 import 'tabs/Index.dart';
 import 'tabs/Me.dart';
@@ -36,6 +37,7 @@ class __TabsState extends State<Tabs> {
         //   title: Text('海滨助手'),
         //   backgroundColor: Color.fromARGB(255, 216,30, 6),//网易红
         // ),
+      // drawer: MyDrawer(),
       body: this._pageList[this._currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,

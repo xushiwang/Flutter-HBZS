@@ -1,6 +1,8 @@
+import 'dart:io';
+
 import 'pages/tabs.dart';
 import 'package:flutter/material.dart';
-
+import 'pages/MePage/EditPage.dart';
 void main() => runApp(MyApp());
 
 
@@ -23,6 +25,9 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.grey,
       ),
+      routes: {
+        '/edit':(context)=>EditPage(),//命名路由
+      },
       home: Tabs(),
     );
   }

@@ -10,6 +10,7 @@ class MyDrawer extends StatelessWidget {
       child: Drawer(
           elevation: 15,
           child: ListView(
+          padding: EdgeInsets.zero,
           ///edit start
           //padding: EdgeInsets.all(20),
           
@@ -35,6 +36,10 @@ class MyDrawer extends StatelessWidget {
               onTap: (){
                 print('点击了设置');
               },
+            ),
+            Container(
+              child: Divider(),
+              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
             ),
             ListTile(
               leading: CircleAvatar(
@@ -89,6 +94,10 @@ class MyDrawer extends StatelessWidget {
               onTap: (){
                 print('点击了通用');
               },
+            ),
+            Container(
+              child: Divider(),
+              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
             ),
             ListTile(
               leading: CircleAvatar(
