@@ -51,7 +51,9 @@ class _SearchPageState extends State<SearchPage> {
   }
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
+    return Scaffold(
+      
+      GridView.count(
       crossAxisSpacing: 5.0,//左右间距
       mainAxisSpacing: 5.0,//上下间距
       crossAxisCount: 3,
@@ -59,5 +61,6 @@ class _SearchPageState extends State<SearchPage> {
       children: this._getListData(),
       childAspectRatio: 0.7,//长：宽比例
     );
+    )
   }
 }

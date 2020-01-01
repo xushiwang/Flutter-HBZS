@@ -10,18 +10,16 @@ class IndexPage extends StatefulWidget {
 class _IndexPageState extends State<IndexPage> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
+      body: Scaffold(
+        backgroundColor: Colors.white,
+        //drawerScrimColor: Colors.transparent.withOpacity(0.8),
+        drawer: Drawer(
+          child: Text('data')
+        ),
+        //backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,
-          leading: IconButton(
-            icon:Icon(Icons.menu),
-            color: Colors.black,
-            onPressed: (){
-              print("添加好友");
-            },
-          ),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.add),
