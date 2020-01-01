@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hbzs/res/customview.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key key}) : super(key: key);
@@ -10,87 +11,107 @@ class MyDrawer extends StatelessWidget {
           elevation: 15,
           child: ListView(
           ///edit start
-          padding: EdgeInsets.all(20),
+          //padding: EdgeInsets.all(20),
           
           ///edit end
           children: <Widget>[
-            
             Container(
+              margin: EdgeInsets.all(20),
               child: Text(
                 '更多',
                 style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300,
+                  fontSize: 25,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
               
             ),
             //Text:Text('dsf'),
             ListTile(
-              leading: Icon(Icons.settings),
+              leading: CircleAvatar(
+                child: Icon(Icons.settings),
+              ),
               title: Text('设置'),
               onTap: (){
                 print('点击了设置');
               },
             ),
             ListTile(
-              leading: Icon(Icons.settings),
+              leading: CircleAvatar(
+                child: Icon(Icons.people),
+              ),
               title: Text('设置'),
               onTap: (){
                 print('点击了设置');
               },
             ),
             ListTile(
-              leading: Icon(Icons.account_balance_wallet),
+              leading: CircleAvatar(
+                child: Icon(Icons.account_circle),
+              ),
               title: Text('账号与安全'),
               onTap: (){
                 print('点击了账号与安全');
               },
             ),
             ListTile(
-              leading: Icon(Icons.settings),
+              leading: CircleAvatar(
+                child: Icon(Icons.notification_important),
+              ),
               title: Text('通知设置'),
               onTap: (){
                 print('点击了通知设置');
               },
             ),
             ListTile(
-              leading: Icon(Icons.settings),
+              leading: CircleAvatar(
+                child: Icon(Icons.settings),
+              ),
               title: Text('设置'),
               onTap: (){
                 print('点击了设置');
               },
             ),
             ListTile(
-              leading: Icon(Icons.settings),
+              leading: CircleAvatar(
+                child: Icon(Icons.lock),
+              ),
               title: Text('隐私'),
               onTap: (){
                 print('点击了隐私');
               },
             ),
             ListTile(
-              leading: Icon(Icons.settings_applications),
+              leading: CircleAvatar(
+                child: Icon(Icons.unarchive),
+              ),
               title: Text('通用'),
               onTap: (){
                 print('点击了通用');
               },
             ),
             ListTile(
-              leading: Icon(Icons.golf_course),
+              leading: CircleAvatar(
+                child: Icon(Icons.gavel),
+              ),
               title: Text('鼓励一下'),
               onTap: (){
                 print('点击了鼓励一下');
               },
             ),
             ListTile(
-              leading: Icon(Icons.add_box),
+              leading: CircleAvatar(
+                child: Icon(Icons.info),
+              ),
               title: Text('关于海滨助手'),
               onTap: (){
                 print('点击关于海滨助手');
               },
             ),
             ListTile(
-              leading: Icon(Icons.help),
+              leading: CircleAvatar(
+                child: Icon(Icons.live_help),
+              ),
               title: Text('帮助与客服'),
               onTap: (){
                 print('点击了帮助与客服');
