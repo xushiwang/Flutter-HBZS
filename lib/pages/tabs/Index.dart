@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hbzs/pages/tabs/MyDrawer.dart';
 import 'package:hbzs/res/customview.dart';
 class IndexPage extends StatefulWidget {
   IndexPage({Key key}) : super(key: key);
@@ -14,9 +15,7 @@ class _IndexPageState extends State<IndexPage> {
       body: Scaffold(
         backgroundColor: Colors.white,
         //drawerScrimColor: Colors.transparent.withOpacity(0.8),
-        drawer: Drawer(
-          child: Text('data')
-        ),
+        drawer: MyDrawer(),
         //backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,

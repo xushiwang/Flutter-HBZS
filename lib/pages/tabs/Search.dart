@@ -52,15 +52,24 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('查询'),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+      ),
+      body:Column(
+        children: <Widget>[
+          // GridView.count(
+          //   crossAxisSpacing: 5.0,//左右间距
+          //   mainAxisSpacing: 5.0,//上下间距
+          //   crossAxisCount: 3,
+          //   padding: EdgeInsets.all(10),//四周缩进
+          //   children: this._getListData(),
+          //   childAspectRatio: 0.7,//长：宽比例
+          // )
+        ],
+      )  
       
-      GridView.count(
-      crossAxisSpacing: 5.0,//左右间距
-      mainAxisSpacing: 5.0,//上下间距
-      crossAxisCount: 3,
-      padding: EdgeInsets.all(10),//四周缩进
-      children: this._getListData(),
-      childAspectRatio: 0.7,//长：宽比例
-    );
-    )
+    ); 
   }
 }

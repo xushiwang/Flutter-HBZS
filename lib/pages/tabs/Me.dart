@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:hbzs/pages/tabs/MyDrawer.dart';
 import 'package:hbzs/res/customview.dart';
 import 'package:hbzs/res/meData.dart';
 
@@ -16,9 +17,7 @@ class _MePageState extends State<MePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: Text('dfsd'),
-      ),
+      drawer:MyDrawer(),
       appBar: AppBar(
         title:Text(
           '许仕旺',
