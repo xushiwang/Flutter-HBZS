@@ -3,7 +3,7 @@ import 'dart:ffi';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:hbzs/pages/LoginPage/Browser.dart';
+import 'package:hbzs/res/Browser.dart';
 import 'package:path_provider/path_provider.dart';
 
 class MyDrawer extends StatelessWidget {

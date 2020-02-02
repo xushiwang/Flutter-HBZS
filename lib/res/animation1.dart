@@ -1,16 +1,11 @@
 
 import 'dart:io';
-
-/**
- * Author:
- * profile: https://github.com/lohanidamodar
-  */
   
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import './assets.dart' as assets;
-import './details.dart';
-import './network_image.dart';
+import 'package:hbzs/res/assets.dart' as assets;
+import 'package:hbzs/res/details.dart';
+import 'package:hbzs/res/network_image.dart';
 
 List<String> images = [
   assets.images[0],

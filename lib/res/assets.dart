@@ -61,8 +61,8 @@ const List<String> avatars = [
 ];
 
 const List<String> images = [
-  'https://firebasestorage.googleapis.com/v0/b/dl-flutter-ui-challenges.appspot.com/o/img%2F1.jpg?alt=media',
-  'https://firebasestorage.googleapis.com/v0/b/dl-flutter-ui-challenges.appspot.com/o/img%2F2.jpg?alt=media',
+  'https://cn.bing.com/th?id=OHR.SunlitScree_ZH-CN7556627842_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp',
+  'https://cn.bing.com/th?id=OHR.SpeedFlying_ZH-CN1276366046_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp',
   'https://firebasestorage.googleapis.com/v0/b/dl-flutter-ui-challenges.appspot.com/o/img%2F3.jpg?alt=media',
   'https://firebasestorage.googleapis.com/v0/b/dl-flutter-ui-challenges.appspot.com/o/img%2F4.jpg?alt=media',
   'https://firebasestorage.googleapis.com/v0/b/dl-flutter-ui-challenges.appspot.com/o/img%2F5.jpg?alt=media',
@@ -104,6 +104,7 @@ const String devDamodar =
     'https://firebasestorage.googleapis.com/v0/b/dl-flutter-ui-challenges.appspot.com/o/img%2Fdev_damodar.jpg?alt=media&token=aaf47b41-3485-4bab-bcb6-2e472b9afee6';
 const String devSudip =
     'https://firebasestorage.googleapis.com/v0/b/dl-flutter-ui-challenges.appspot.com/o/img%2Fdev_sudip.jpg?alt=media';
+const String devShyam = 'https://uilearner.com/public/images/about-img.jpg';
 const String devSid =
     'https://firebasestorage.googleapis.com/v0/b/dl-flutter-ui-challenges.appspot.com/o/img%2Fdev_sid.png?alt=media';
 

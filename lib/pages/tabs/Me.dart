@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:hbzs/pages/tabs/MyDrawer.dart';
+import 'package:hbzs/res/MyDrawer.dart';
 import 'package:hbzs/res/customview.dart';
 import 'package:share/share.dart';
-import 'package:hbzs/pages/MePage/MyListTitle.dart';
+import 'package:hbzs/res/MyListTitle.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 class MePage extends StatefulWidget {
   MePage({Key key}) : super(key: key);

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:hbzs/pages/MePage/animation1.dart';
+import 'package:hbzs/res/animation1.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hbzs/pages/MePage/pagination.dart';
+import 'package:hbzs/res/pagination.dart';
 
 class IntroTwoPage extends StatefulWidget {
   static final String path = "lib/src/pages/onboarding/intro2.dart";

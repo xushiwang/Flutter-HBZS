@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hbzs/pages/tabs/MyDrawer.dart';
+import 'package:hbzs/res/MyDrawer.dart';
 import 'package:hbzs/res/customview.dart';
 class IndexPage extends StatefulWidget {
   IndexPage({Key key}) : super(key: key);

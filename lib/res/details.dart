@@ -7,8 +7,8 @@ import 'dart:io';
   */
   
 import 'package:flutter/material.dart';
-import './animation1.dart';
-import './network_image.dart';
+import 'package:hbzs/res/animation1.dart';
+import 'package:hbzs/res/network_image.dart';
 
 class AnimationOneDetails extends StatelessWidget {
   static final String path = "lib/pages/MePage/details.dart";

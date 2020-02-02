@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:cached_network_image/cached_network_image.dart';
-import 'package:hbzs/pages/MePage/assets.dart';
+import 'package:hbzs/res/assets.dart';
 
 class ChatUi extends StatelessWidget {
   static final String path = "lib/src/pages/misc/chatui.dart";

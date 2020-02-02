@@ -1,18 +1,16 @@
-import 'package:hbzs/pages/IndexPage/Send.dart';
-import 'package:hbzs/pages/MePage/list_cet.dart';
-import 'package:hbzs/pages/MePage/list_retest.dart';
-import 'package:hbzs/pages/MePage/list_sorce.dart';
-import 'package:hbzs/pages/MePage/list_test.dart';
-import 'package:hbzs/pages/MessagePage/Chat.dart';
-import 'package:hbzs/pages/MyDrawPage/editInfo.dart';
-import 'package:hbzs/res/xifu.dart';
+import 'package:hbzs/router/Send.dart';
+import 'package:hbzs/router/list_cet.dart';
+import 'package:hbzs/router/list_retest.dart';
+import 'package:hbzs/router/list_sorce.dart';
+import 'package:hbzs/router/list_test.dart';
+import 'package:hbzs/router/Chat.dart';
+import 'package:hbzs/router/editInfo.dart';
 import 'package:hbzs/router/about.dart';
 
 import 'pages/tabs.dart';
 import 'package:flutter/material.dart';
-import 'package:hbzs/pages/LoginPage/login.dart';
-import 'package:hbzs/pages/MePage/EveryImage.dart';
-import 'pages/MessagePage/Chat.dart';
+import 'package:hbzs/router/login.dart';
+import 'package:hbzs/router/EveryImage.dart';
 void main() => runApp(MyApp());
 
 
@@ -46,7 +44,6 @@ class MyApp extends StatelessWidget {
         '/test':(context)=>List_Test(),
         '/retest':(context)=>List_ReTest(),
         '/about':(context)=>About(),
-        '/xifu':(context)=>XiFu(),
 
       },
       home: Tabs(),

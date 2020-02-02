@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:hbzs/pages/LoginPage/Browser.dart';
+import 'package:hbzs/res/Browser.dart';
 
 class MyTitleList extends StatelessWidget {
   const MyTitleList({Key key}) : super(key: key);
