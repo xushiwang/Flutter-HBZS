@@ -1,20 +1,14 @@
 import 'dart:convert';
-import 'dart:math';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:hbzs/res/customview.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class List_ReTest extends StatefulWidget {
   List_ReTest({Key key}) : super(key: key);
-  static final String path = "lib/src/pages/lists/list2.dart";
-
-  _ListsState createState() => _ListsState();
+  _listsstate createState() => _listsstate();
 }
 
-class _ListsState extends State<List_ReTest> {
+class _listsstate extends State<List_ReTest> {
   final TextStyle dropdownMenuItem =
       TextStyle(color: Colors.black, fontSize: 18);
 
@@ -23,12 +17,11 @@ class _ListsState extends State<List_ReTest> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     this._get_cj();
   }
 
-  List Listss = [];
+  List listss = [];
   String cjzs = "";
   final TextEditingController _controller = new TextEditingController();
 
@@ -47,7 +40,7 @@ class _ListsState extends State<List_ReTest> {
                 height: MediaQuery.of(context).size.height,
                 width: double.infinity,
                 child: ListView.builder(
-                    itemCount: Listss.length,
+                    itemCount: listss.length,
                     itemBuilder: (BuildContext context, int index) {
                       return buildList(context, index);
                     }),
@@ -156,7 +149,7 @@ class _ListsState extends State<List_ReTest> {
                     Expanded(
                       flex: 2,
                       child: Text(
-                        Listss[index]['course_title'],
+                        listss[index]['course_title'],
                         style: TextStyle(
                             color: primary,
                             fontWeight: FontWeight.bold,
@@ -166,7 +159,7 @@ class _ListsState extends State<List_ReTest> {
                     Expanded(
                       flex: 1,
                       child: Text(
-                        Listss[index]['ks_location'],
+                        listss[index]['ks_location'],
                         textAlign: TextAlign.right,
                         style: TextStyle(
                             color: primary,
@@ -191,7 +184,7 @@ class _ListsState extends State<List_ReTest> {
                     ),
                     Text(
                         "考试时间:" +
-                            Listss[index]['ks_time'],
+                            listss[index]['ks_time'],
                         style: TextStyle(
                             color: primary, fontSize: 13, letterSpacing: .3)),
                   ],
@@ -209,7 +202,7 @@ class _ListsState extends State<List_ReTest> {
                     SizedBox(
                       width: 5,
                     ),
-                    Text("座位号:" + Listss[index]['ks_seat'],
+                    Text("座位号:" + listss[index]['ks_seat'],
                         style: TextStyle(
                             color: primary, fontSize: 13, letterSpacing: .3)),
                   ],
@@ -239,7 +232,7 @@ class _ListsState extends State<List_ReTest> {
         //   print(json.decode(response.data)["cj_all"]);
         //   List DATA1 = json.decode(response.data)["cj_all"];
         setState(() {
-          Listss = json.decode(response.data)["bk"];
+          listss = json.decode(response.data)["bk"];
           cjzs = json.decode(response.data)["exam_numb"].toString();
         });
       }

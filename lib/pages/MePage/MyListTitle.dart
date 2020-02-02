@@ -14,7 +14,6 @@ class MyTitleList extends StatelessWidget {
         title: Text(
           '个人中心',
           style: TextStyle(
-            
             color: Colors.black
           ),
         ),
@@ -25,7 +24,7 @@ class MyTitleList extends StatelessWidget {
 
       //分割线
       Container(
-        child: Divider(height: 2,color: Color.fromARGB(255,207, 169, 114),),
+        child: Divider(height: 2,color: Colors.grey),
         padding: EdgeInsets.fromLTRB(70, 0, 0, 0),
       ),
       ListTile(
@@ -44,7 +43,7 @@ class MyTitleList extends StatelessWidget {
       ),
       //分割线
       Container(
-        child: Divider(height: 2,color: Color.fromARGB(255,207, 169, 114),),
+        child: Divider(height: 2,color: Colors.grey),
         padding: EdgeInsets.fromLTRB(70, 0, 0, 0),
       ),
       ListTile(
@@ -64,7 +63,7 @@ class MyTitleList extends StatelessWidget {
 
       //分割线
       Container(
-        child: Divider(height: 2,color: Color.fromARGB(255,207, 169, 114),),
+        child: Divider(height: 2,color: Colors.grey),
         padding: EdgeInsets.fromLTRB(70, 0, 0, 0),
       ),
       ListTile(
@@ -84,7 +83,7 @@ class MyTitleList extends StatelessWidget {
 
       //分割线
       Container(
-        child: Divider(height: 2,color: Color.fromARGB(255,207, 169, 114),),
+        child: Divider(height: 2,color: Colors.grey),
         padding: EdgeInsets.fromLTRB(70, 0, 0, 0),
       ),
       ListTile(
@@ -104,7 +103,7 @@ class MyTitleList extends StatelessWidget {
 
       //分割线
       Container(
-        child: Divider(height: 2,color: Color.fromARGB(255,207, 169, 114),),
+        child: Divider(height: 2,color: Colors.grey),
         padding: EdgeInsets.fromLTRB(70, 0, 0, 0),
       ),
       ListTile(

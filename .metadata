@@ -4,11 +4,7 @@
 # This file should be version controlled and should not be manually edited.
 
 version:
-<<<<<<< 4c0dabc26c772d83fdd4c56121a8ce7856c653be
-  revision: d51fd86cdb486192e187ccdf6f02cb2a38273d8d
-=======
   revision: 27321ebbad34b0a3fafe99fac037102196d655ff
->>>>>>> messagfe
   channel: stable
 
 project_type: app

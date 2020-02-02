@@ -1,20 +1,16 @@
 import 'dart:convert';
-import 'dart:math';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:hbzs/res/customview.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Lists extends StatefulWidget {
   Lists({Key key}) : super(key: key);
   static final String path = "lib/src/pages/lists/list2.dart";
 
-  _ListsState createState() => _ListsState();
+  _listsstate createState() => _listsstate();
 }
 
-class _ListsState extends State<Lists> {
+class _listsstate extends State<Lists> {
   final TextStyle dropdownMenuItem =
       TextStyle(color: Colors.black, fontSize: 18);
 
@@ -28,7 +24,7 @@ class _ListsState extends State<Lists> {
     this._get_cj();
   }
 
-  List Listss = [];
+  List listss = [];
   String pjxfjd="";
   String zyzrs="";
   String xfjdzh="";
@@ -50,7 +46,7 @@ class _ListsState extends State<Lists> {
                 height: MediaQuery.of(context).size.height,
                 width: double.infinity,
                 child: ListView.builder(
-                    itemCount: Listss.length,
+                    itemCount: listss.length,
                     itemBuilder: (BuildContext context, int index) {
                       return buildList(context, index);
                     }),
@@ -159,7 +155,7 @@ class _ListsState extends State<Lists> {
                     Expanded(
                       flex: 3,
                       child: Text(
-                        Listss[index]['course_title'],
+                        listss[index]['course_title'],
                         style: TextStyle(
                             color: primary,
                             fontWeight: FontWeight.bold,
@@ -169,7 +165,7 @@ class _ListsState extends State<Lists> {
                     Expanded(
                       flex: 1,
                       child: Text(
-                        Listss[index]['course_result'],
+                        listss[index]['course_result'],
                         textAlign: TextAlign.right,
                         style: TextStyle(
                             color:primary,
@@ -192,7 +188,7 @@ class _ListsState extends State<Lists> {
                     SizedBox(
                       width: 5,
                     ),
-                    Text(Listss[index]['college_name'],
+                    Text(listss[index]['college_name'],
                         style: TextStyle(
                             color: primary, fontSize: 13, letterSpacing: .3)),
                     SizedBox(
@@ -206,7 +202,7 @@ class _ListsState extends State<Lists> {
                     SizedBox(
                       width: 5,
                     ),
-                    Text(Listss[index]['course_nature'],
+                    Text(listss[index]['course_nature'],
                         style: TextStyle(
                             color: primary, fontSize: 13, letterSpacing: .3)),
                   ],
@@ -226,9 +222,9 @@ class _ListsState extends State<Lists> {
                     ),
                     Text(
                         "学年:" +
-                            Listss[index]['school_year'] +
+                            listss[index]['school_year'] +
                             "  学期:" +
-                            Listss[index]["semester"],
+                            listss[index]["semester"],
                         style: TextStyle(
                             color: primary, fontSize: 13, letterSpacing: .3)),
                     SizedBox(
@@ -239,7 +235,7 @@ class _ListsState extends State<Lists> {
                       color: secondary,
                       size: 20,
                     ),
-                    Text("代码:" + Listss[index]['course_code'],
+                    Text("代码:" + listss[index]['course_code'],
                         style: TextStyle(
                             color: primary, fontSize: 13, letterSpacing: .3)),
                   ],
@@ -257,7 +253,7 @@ class _ListsState extends State<Lists> {
                     SizedBox(
                       width: 5,
                     ),
-                    Text("学分:"+Listss[index]['course_credit'],
+                    Text("学分:"+listss[index]['course_credit'],
                         style: TextStyle(
                             color: primary, fontSize: 13, letterSpacing: .3)),
                     SizedBox(
@@ -271,7 +267,7 @@ class _ListsState extends State<Lists> {
                     SizedBox(
                       width: 5,
                     ),
-                    Text("绩点:"+Listss[index]['grade_point'],
+                    Text("绩点:"+listss[index]['grade_point'],
                         style: TextStyle(
                             color: primary, fontSize: 13, letterSpacing: .3)),
                   ],
@@ -301,7 +297,7 @@ class _ListsState extends State<Lists> {
         //   print(json.decode(response.data)["cj_all"]);
         //   List DATA1 = json.decode(response.data)["cj_all"];
         setState(() {
-          Listss = json.decode(response.data)["cj_all"];
+          listss = json.decode(response.data)["cj_all"];
           pjxfjd = json.decode(response.data)["credit"]["pjxfjd"];
           zyzrs = json.decode(response.data)["credit"]["zyzrs"];
           xfjdzh = json.decode(response.data)["credit"]["xfjdzh"];

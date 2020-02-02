@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hbzs/pages/LoginPage/Browser.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatelessWidget {
   const About({Key key}) : super(key: key);
@@ -19,7 +18,7 @@ class About extends StatelessWidget {
           new ListTile(
             leading: new FlutterLogo(),
             title: new Text('海滨助手'),
-            subtitle: new Text("v1.0 \nDesign by 许仕旺"),
+            subtitle: new Text("v1.0 \nDesign by 许仕旺  自由程序员/独立开发者"),
           ),
           new Divider(),
           new ListTile(
@@ -61,16 +60,6 @@ class About extends StatelessWidget {
               }));
             },
           ),
-          // new ListTile(
-          //     leading: new Icon(Icons.info),
-          //     title: new Text("查看Licenses"),
-          //     onTap: () {
-          //       showLicensePage(
-          //           context: context,
-          //           applicationName: "海滨助手",
-          //           applicationIcon: FlutterLogo(),
-          //           applicationVersion: "v1.0");
-          //     }),
           new Divider(),
         ],
       ),
