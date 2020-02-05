@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toast/toast.dart';
 
 class List_Test extends StatefulWidget {
   List_Test({Key key}) : super(key: key);
@@ -185,9 +186,7 @@ class _ListsState extends State<List_Test> {
                     SizedBox(
                       width: 5,
                     ),
-                    Text(
-                        "考试时间:" +
-                            Listss[index]['exam_time'],
+                    Text("考试时间:" + Listss[index]['exam_time'],
                         style: TextStyle(
                             color: primary, fontSize: 13, letterSpacing: .3)),
                   ],
@@ -228,19 +227,26 @@ class _ListsState extends State<List_Test> {
     });
     //print(params);
     Dio dio = new Dio();
-    Response response = await dio
-        .post("https://xxzx.bjtuhbxy.edu.cn/login/main/get_ks", data: params);
-    if (response.statusCode == 200) {
-      if (json.decode(response.data)["ks_flag"] == 1) {
-        //   print(json.decode(response.data)["cj_all"]);
-        //   List DATA1 = json.decode(response.data)["cj_all"];
-        setState(() {
-          Listss = json.decode(response.data)["ks_all"];
-          cjzs = json.decode(response.data)["exam_number"].toString();
-        });
+    try {
+      Response response = await dio
+          .post("https://xxzx.bjtuhbxy.edu.cn/login/main/get_ks", data: params);
+      if (response.statusCode == 200) {
+        if (json.decode(response.data)["ks_flag"] == 1) {
+          //   print(json.decode(response.data)["cj_all"]);
+          //   List DATA1 = json.decode(response.data)["cj_all"];
+          setState(() {
+            Listss = json.decode(response.data)["ks_all"];
+            cjzs = json.decode(response.data)["exam_number"].toString();
+          });
+        }
+      } else {
+        print(response.statusCode);
       }
-    } else {
-      print(response.statusCode);
+    } on DioError catch (e) {
+      // 请求错误处理
+      print("网络" + e.toString());
+      Toast.show("网络错误,请检查网络连接", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
     }
   }
 

@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:hbzs/res/Browser.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key key}) : super(key: key);
@@ -174,6 +175,8 @@ class MyDrawer extends StatelessWidget {
     return size + unitArr[index];
   }
   void _clearCache() async {
+     final prefs = await SharedPreferences.getInstance();
+     prefs.clear();
     Directory tempDir = await getTemporaryDirectory();
       //删除缓存目录
       await delDir(tempDir);

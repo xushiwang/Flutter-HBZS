@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toast/toast.dart';
 
 class List_Cet extends StatefulWidget {
   List_Cet({Key key}) : super(key: key);
@@ -222,7 +223,12 @@ class _ListsState extends State<List_Cet> {
 
   Future<void> _get_cj() async {
     final prefs = await SharedPreferences.getInstance();
+    var data = prefs.getStringList("cj");
+    if(data!=null){
 
+    }else{
+      
+    }
     FormData params = new FormData.from({
       'name': "yy",
       'account': prefs.getString("account"),
@@ -230,25 +236,30 @@ class _ListsState extends State<List_Cet> {
     });
     //print(params);
     Dio dio = new Dio();
-    Response response = await dio
-        .post("https://xxzx.bjtuhbxy.edu.cn/login/main/get_yy", data: params);
-    if (response.statusCode == 200) {
-      if (json.decode(response.data)["yy_flag"] == 1) {
-        //   print(json.decode(response.data)["cj_all"]);
-        //   List DATA1 = json.decode(response.data)["cj_all"];
-        setState(() {
-          Listss = json.decode(response.data)["yy_all"];
-          cjzs = json.decode(response.data)["exam_number"].toString();
-        });
+    try {
+      Response response = await dio
+          .post("https://xxzx.bjtuhbxy.edu.cn/login/main/get_yy", data: params);
+      if (response.statusCode == 200) {
+        if (json.decode(response.data)["yy_flag"] == 1) {
+          //   print(json.decode(response.data)["cj_all"]);
+          //   List DATA1 = json.decode(response.data)["cj_all"];
+          setState(() {
+            Listss = json.decode(response.data)["yy_all"];
+            cjzs = json.decode(response.data)["exam_number"].toString();
+          });
+        }
       }
-    } else {
-      print(response.statusCode);
+    } on DioError catch (e) {
+      // 请求错误处理
+      print("网络"+e.toString());
+      Toast.show("网络错误,请检查网络连接", context,
+                        duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
     }
   }
 
   update() {
     if (_controller.text != "") {
-      print(_controller.text + "-");
+      print(_controller.text + "*******");
       setState(() {
         SelectableText(_controller.text);
       });

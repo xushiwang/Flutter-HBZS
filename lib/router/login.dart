@@ -131,11 +131,12 @@ class Login extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      Container(padding: EdgeInsets.only(right: 20.0),
-                        child: Text("游客登录",
-                          style: TextStyle(color: Colors.black45),
-                        )
-                      )
+                      Container(
+                          padding: EdgeInsets.only(right: 20.0),
+                          child: Text(
+                            "游客登录",
+                            style: TextStyle(color: Colors.black45),
+                          ))
                     ],
                   ),
                   SizedBox(
@@ -178,30 +179,38 @@ class Login extends StatelessWidget {
                     });
 
                     Dio dio = new Dio();
-                    Response response = await dio.post(
-                        "https://xxzx.bjtuhbxy.edu.cn/login/main",
-                        data: params);
+                    try {
+                      Response response = await dio.post(
+                          "https://xxzx.bjtuhbxy.edu.cn/login/main",
+                          data: params);
 
-                    if (response.statusCode == 200) {
-                      if (json.decode(response.data)["login_flag"] == 1) {
-                        //登录成功
-                        final prefs = await SharedPreferences.getInstance();
-                        print(
-                            "XCCCCCCCCCCCCCCCCCCCC" + response.data.toString());
-                        prefs.setString(
-                            'account', json.decode(response.data)["account"]);
-                        prefs.setString(
-                            'secret', json.decode(response.data)["secret"]);
-                        prefs.setString(
-                            'name', json.decode(response.data)["name"]);
-                        print(prefs.getString("name"));
+                      if (response.statusCode == 200) {
+                        if (json.decode(response.data)["login_flag"] == 1) {
+                          //登录成功
+                          final prefs = await SharedPreferences.getInstance();
+                          print("XCCCCCCCCCCCCCCCCCCCC" +
+                              response.data.toString());
+                          prefs.setString(
+                              'account', json.decode(response.data)["account"]);
+                          prefs.setString(
+                              'secret', json.decode(response.data)["secret"]);
+                          prefs.setString(
+                              'name', json.decode(response.data)["name"]);
+                          print(prefs.getString("name"));
+                        } else {
+                          Toast.show(
+                              json.decode(response.data)["error"], context,
+                              duration: Toast.LENGTH_SHORT,
+                              gravity: Toast.BOTTOM);
+                        }
                       } else {
-                        Toast.show(json.decode(response.data)["error"], context,
-                            duration: Toast.LENGTH_SHORT,
-                            gravity: Toast.BOTTOM);
+                        print("HHERROR" + response.statusCode.toString());
                       }
-                    } else {
-                      print("HHERROR" + response.statusCode.toString());
+                    } on DioError catch (e) {
+                      // 请求错误处理
+                      print("网络" + e.toString());
+                      Toast.show("网络错误,请检查网络连接", context,
+                          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
                     }
                   } else {
                     Toast.show("用户名和密码均不能为空", context,

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toast/toast.dart';
 
 class Lists extends StatefulWidget {
   Lists({Key key}) : super(key: key);
@@ -25,12 +26,12 @@ class _listsstate extends State<Lists> {
   }
 
   List listss = [];
-  String pjxfjd="";
-  String zyzrs="";
-  String xfjdzh="";
-  
+  String pjxfjd = "";
+  String zyzrs = "";
+  String xfjdzh = "";
+
   final TextEditingController _controller = new TextEditingController();
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,10 +109,10 @@ class _listsstate extends State<Lists> {
                           cursorColor: Theme.of(context).primaryColor,
                           style: dropdownMenuItem,
                           decoration: InputDecoration(
-                            enabled: false,
-                              hintText: "平均绩点:"+pjxfjd+"  专业人数:"+zyzrs,
-                              hintStyle: TextStyle(
-                                  color: Colors.black, fontSize: 16),
+                              enabled: false,
+                              hintText: "平均绩点:" + pjxfjd + "  专业人数:" + zyzrs,
+                              hintStyle:
+                                  TextStyle(color: Colors.black, fontSize: 16),
                               prefixIcon: Material(
                                 elevation: 0.0,
                                 borderRadius:
@@ -168,7 +169,7 @@ class _listsstate extends State<Lists> {
                         listss[index]['course_result'],
                         textAlign: TextAlign.right,
                         style: TextStyle(
-                            color:primary,
+                            color: primary,
                             fontWeight: FontWeight.bold,
                             fontSize: 18),
                       ),
@@ -253,7 +254,7 @@ class _listsstate extends State<Lists> {
                     SizedBox(
                       width: 5,
                     ),
-                    Text("学分:"+listss[index]['course_credit'],
+                    Text("学分:" + listss[index]['course_credit'],
                         style: TextStyle(
                             color: primary, fontSize: 13, letterSpacing: .3)),
                     SizedBox(
@@ -267,7 +268,7 @@ class _listsstate extends State<Lists> {
                     SizedBox(
                       width: 5,
                     ),
-                    Text("绩点:"+listss[index]['grade_point'],
+                    Text("绩点:" + listss[index]['grade_point'],
                         style: TextStyle(
                             color: primary, fontSize: 13, letterSpacing: .3)),
                   ],
@@ -289,33 +290,39 @@ class _listsstate extends State<Lists> {
       'numb': prefs.getString("secret")
     });
     //print(params);
-    Dio dio = new Dio();
-    Response response = await dio
-        .post("https://xxzx.bjtuhbxy.edu.cn/login/main/get_cj", data: params);
-    if (response.statusCode == 200) {
-      if (json.decode(response.data)["cj_flag"] == 1) {
-        //   print(json.decode(response.data)["cj_all"]);
-        //   List DATA1 = json.decode(response.data)["cj_all"];
-        setState(() {
-          listss = json.decode(response.data)["cj_all"];
-          pjxfjd = json.decode(response.data)["credit"]["pjxfjd"];
-          zyzrs = json.decode(response.data)["credit"]["zyzrs"];
-          xfjdzh = json.decode(response.data)["credit"]["xfjdzh"];
-        });
+
+    try {
+      Dio dio = new Dio();
+      Response response = await dio
+          .post("https://xxzx.bjtuhbxy.edu.cn/login/main/get_cj", data: params);
+      if (response.statusCode == 200) {
+        if (json.decode(response.data)["cj_flag"] == 1) {
+          //   print(json.decode(response.data)["cj_all"]);
+          //   List DATA1 = json.decode(response.data)["cj_all"];
+          setState(() {
+            listss = json.decode(response.data)["cj_all"];
+            pjxfjd = json.decode(response.data)["credit"]["pjxfjd"];
+            zyzrs = json.decode(response.data)["credit"]["zyzrs"];
+            xfjdzh = json.decode(response.data)["credit"]["xfjdzh"];
+          });
+        }
+      } else {
+        print(response.statusCode);
       }
-    } else {
-      print(response.statusCode);
+    } on DioError catch (e) {
+      // 请求错误处理
+      print("网络" + e.toString());
+      Toast.show("网络错误,请检查网络连接", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
     }
   }
 
   update() {
-    
-    if(_controller.text != ""){
-      print(_controller.text+"-");
+    if (_controller.text != "") {
+      print(_controller.text + "-");
       setState(() {
         SelectableText(_controller.text);
       });
     }
   }
-  
 }

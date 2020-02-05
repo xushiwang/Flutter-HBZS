@@ -230,7 +230,13 @@ Map<String, dynamic> _$Class_currentToJson(Class_current instance) =>
     };
 
 Sun4 _$Sun4FromJson(Map<String, dynamic> json) {
-  return Sun4(json['kb_flag'] as int, json['class_current'] as List);
+  return Sun4(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Sun4ToJson(Sun4 instance) => <String, dynamic>{
@@ -254,7 +260,13 @@ Map<String, dynamic> _$Mon2ToJson(Mon2 instance) => <String, dynamic>{
     };
 
 Fri2 _$Fri2FromJson(Map<String, dynamic> json) {
-  return Fri2(json['kb_flag'] as int, json['class_current'] as List);
+  return Fri2(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Fri2ToJson(Fri2 instance) => <String, dynamic>{
@@ -263,7 +275,13 @@ Map<String, dynamic> _$Fri2ToJson(Fri2 instance) => <String, dynamic>{
     };
 
 Sun3 _$Sun3FromJson(Map<String, dynamic> json) {
-  return Sun3(json['kb_flag'] as int, json['class_current'] as List);
+  return Sun3(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Sun3ToJson(Sun3 instance) => <String, dynamic>{
@@ -272,7 +290,13 @@ Map<String, dynamic> _$Sun3ToJson(Sun3 instance) => <String, dynamic>{
     };
 
 Sat1 _$Sat1FromJson(Map<String, dynamic> json) {
-  return Sat1(json['kb_flag'] as int, json['class_current'] as List);
+  return Sat1(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Sat1ToJson(Sat1 instance) => <String, dynamic>{
@@ -281,7 +305,13 @@ Map<String, dynamic> _$Sat1ToJson(Sat1 instance) => <String, dynamic>{
     };
 
 Sat5 _$Sat5FromJson(Map<String, dynamic> json) {
-  return Sat5(json['kb_flag'] as int, json['class_current'] as List);
+  return Sat5(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Sat5ToJson(Sat5 instance) => <String, dynamic>{
@@ -290,7 +320,13 @@ Map<String, dynamic> _$Sat5ToJson(Sat5 instance) => <String, dynamic>{
     };
 
 Wed5 _$Wed5FromJson(Map<String, dynamic> json) {
-  return Wed5(json['kb_flag'] as int, json['class_current'] as List);
+  return Wed5(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Wed5ToJson(Wed5 instance) => <String, dynamic>{
@@ -299,7 +335,13 @@ Map<String, dynamic> _$Wed5ToJson(Wed5 instance) => <String, dynamic>{
     };
 
 Fri5 _$Fri5FromJson(Map<String, dynamic> json) {
-  return Fri5(json['kb_flag'] as int, json['class_current'] as List);
+  return Fri5(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Fri5ToJson(Fri5 instance) => <String, dynamic>{
@@ -323,7 +365,13 @@ Map<String, dynamic> _$Tues1ToJson(Tues1 instance) => <String, dynamic>{
     };
 
 Fri1 _$Fri1FromJson(Map<String, dynamic> json) {
-  return Fri1(json['kb_flag'] as int, json['class_current'] as List);
+  return Fri1(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Fri1ToJson(Fri1 instance) => <String, dynamic>{
@@ -362,7 +410,13 @@ Map<String, dynamic> _$Mon3ToJson(Mon3 instance) => <String, dynamic>{
     };
 
 Fri4 _$Fri4FromJson(Map<String, dynamic> json) {
-  return Fri4(json['kb_flag'] as int, json['class_current'] as List);
+  return Fri4(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Fri4ToJson(Fri4 instance) => <String, dynamic>{
@@ -371,7 +425,13 @@ Map<String, dynamic> _$Fri4ToJson(Fri4 instance) => <String, dynamic>{
     };
 
 Sun1 _$Sun1FromJson(Map<String, dynamic> json) {
-  return Sun1(json['kb_flag'] as int, json['class_current'] as List);
+  return Sun1(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Sun1ToJson(Sun1 instance) => <String, dynamic>{
@@ -395,7 +455,13 @@ Map<String, dynamic> _$Thur1ToJson(Thur1 instance) => <String, dynamic>{
     };
 
 Sun5 _$Sun5FromJson(Map<String, dynamic> json) {
-  return Sun5(json['kb_flag'] as int, json['class_current'] as List);
+  return Sun5(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Sun5ToJson(Sun5 instance) => <String, dynamic>{
@@ -404,7 +470,13 @@ Map<String, dynamic> _$Sun5ToJson(Sun5 instance) => <String, dynamic>{
     };
 
 Thur4 _$Thur4FromJson(Map<String, dynamic> json) {
-  return Thur4(json['kb_flag'] as int, json['class_current'] as List);
+  return Thur4(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Thur4ToJson(Thur4 instance) => <String, dynamic>{
@@ -413,7 +485,13 @@ Map<String, dynamic> _$Thur4ToJson(Thur4 instance) => <String, dynamic>{
     };
 
 Tues3 _$Tues3FromJson(Map<String, dynamic> json) {
-  return Tues3(json['kb_flag'] as int, json['class_current'] as List);
+  return Tues3(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Tues3ToJson(Tues3 instance) => <String, dynamic>{
@@ -422,7 +500,13 @@ Map<String, dynamic> _$Tues3ToJson(Tues3 instance) => <String, dynamic>{
     };
 
 Thur5 _$Thur5FromJson(Map<String, dynamic> json) {
-  return Thur5(json['kb_flag'] as int, json['class_current'] as List);
+  return Thur5(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Thur5ToJson(Thur5 instance) => <String, dynamic>{
@@ -431,7 +515,13 @@ Map<String, dynamic> _$Thur5ToJson(Thur5 instance) => <String, dynamic>{
     };
 
 Tues5 _$Tues5FromJson(Map<String, dynamic> json) {
-  return Tues5(json['kb_flag'] as int, json['class_current'] as List);
+  return Tues5(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Tues5ToJson(Tues5 instance) => <String, dynamic>{
@@ -440,7 +530,13 @@ Map<String, dynamic> _$Tues5ToJson(Tues5 instance) => <String, dynamic>{
     };
 
 Thur3 _$Thur3FromJson(Map<String, dynamic> json) {
-  return Thur3(json['kb_flag'] as int, json['class_current'] as List);
+  return Thur3(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Thur3ToJson(Thur3 instance) => <String, dynamic>{
@@ -449,7 +545,13 @@ Map<String, dynamic> _$Thur3ToJson(Thur3 instance) => <String, dynamic>{
     };
 
 Sat3 _$Sat3FromJson(Map<String, dynamic> json) {
-  return Sat3(json['kb_flag'] as int, json['class_current'] as List);
+  return Sat3(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Sat3ToJson(Sat3 instance) => <String, dynamic>{
@@ -518,7 +620,13 @@ Map<String, dynamic> _$Fri3ToJson(Fri3 instance) => <String, dynamic>{
     };
 
 Tues2 _$Tues2FromJson(Map<String, dynamic> json) {
-  return Tues2(json['kb_flag'] as int, json['class_current'] as List);
+  return Tues2(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Tues2ToJson(Tues2 instance) => <String, dynamic>{
@@ -527,7 +635,13 @@ Map<String, dynamic> _$Tues2ToJson(Tues2 instance) => <String, dynamic>{
     };
 
 Mon4 _$Mon4FromJson(Map<String, dynamic> json) {
-  return Mon4(json['kb_flag'] as int, json['class_current'] as List);
+  return Mon4(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Mon4ToJson(Mon4 instance) => <String, dynamic>{
@@ -536,7 +650,13 @@ Map<String, dynamic> _$Mon4ToJson(Mon4 instance) => <String, dynamic>{
     };
 
 Sat4 _$Sat4FromJson(Map<String, dynamic> json) {
-  return Sat4(json['kb_flag'] as int, json['class_current'] as List);
+  return Sat4(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Sat4ToJson(Sat4 instance) => <String, dynamic>{
@@ -545,7 +665,13 @@ Map<String, dynamic> _$Sat4ToJson(Sat4 instance) => <String, dynamic>{
     };
 
 Wed4 _$Wed4FromJson(Map<String, dynamic> json) {
-  return Wed4(json['kb_flag'] as int, json['class_current'] as List);
+  return Wed4(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Wed4ToJson(Wed4 instance) => <String, dynamic>{
@@ -554,7 +680,13 @@ Map<String, dynamic> _$Wed4ToJson(Wed4 instance) => <String, dynamic>{
     };
 
 Sat2 _$Sat2FromJson(Map<String, dynamic> json) {
-  return Sat2(json['kb_flag'] as int, json['class_current'] as List);
+  return Sat2(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Sat2ToJson(Sat2 instance) => <String, dynamic>{
@@ -563,7 +695,13 @@ Map<String, dynamic> _$Sat2ToJson(Sat2 instance) => <String, dynamic>{
     };
 
 Mon1 _$Mon1FromJson(Map<String, dynamic> json) {
-  return Mon1(json['kb_flag'] as int, json['class_current'] as List);
+  return Mon1(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Mon1ToJson(Mon1 instance) => <String, dynamic>{
@@ -572,7 +710,13 @@ Map<String, dynamic> _$Mon1ToJson(Mon1 instance) => <String, dynamic>{
     };
 
 Mon5 _$Mon5FromJson(Map<String, dynamic> json) {
-  return Mon5(json['kb_flag'] as int, json['class_current'] as List);
+  return Mon5(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Mon5ToJson(Mon5 instance) => <String, dynamic>{
@@ -581,7 +725,13 @@ Map<String, dynamic> _$Mon5ToJson(Mon5 instance) => <String, dynamic>{
     };
 
 Sun2 _$Sun2FromJson(Map<String, dynamic> json) {
-  return Sun2(json['kb_flag'] as int, json['class_current'] as List);
+  return Sun2(
+      json['kb_flag'] as int,
+      (json['class_current'] as List)
+          ?.map((e) => e == null
+              ? null
+              : Class_current.fromJson(e as Map<String, dynamic>))
+          ?.toList());
 }
 
 Map<String, dynamic> _$Sun2ToJson(Sun2 instance) => <String, dynamic>{
