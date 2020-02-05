@@ -86,7 +86,7 @@ class _ClassPageState extends State<ClassPage> {
       home: DefaultTabController(
         length: 2,
         child: Scaffold(
-          backgroundColor: Colors.white,
+          // backgroundColor: Colors.white,
           appBar: AppBar(
             leading: Builder(builder: (context) {
               return IconButton(

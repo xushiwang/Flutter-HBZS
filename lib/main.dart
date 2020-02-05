@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:hbzs/router/Send.dart';
 import 'package:hbzs/router/list_cet.dart';
 import 'package:hbzs/router/list_retest.dart';
@@ -11,40 +12,36 @@ import 'pages/tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:hbzs/router/login.dart';
 import 'package:hbzs/router/EveryImage.dart';
-void main() => runApp(MyApp());
 
+//void main() => runApp(MyApp(),SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark););
+void main() {
+  runApp(MyApp());
+  //黑色
+  //SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+}
 
 //自定义组件需要继承StatelessWidget
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
-      debugShowCheckedModeBanner: false,//去掉debug
-       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the consoluge where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
+      debugShowCheckedModeBanner: false, //去掉debug
+      theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
       routes: {
-        '/chat':(context)=>ChatUi(),//命名路由
-        '/send':(context)=>SendPage(),
-        '/beautiful':(context)=>IntroTwoPage(),
-        '/login':(context)=>Login(),
-        '/editinfo':(context)=>EditInfo(),
-        '/lists':(context)=>Lists(),
-        '/cet':(context)=>List_Cet(),
-        '/test':(context)=>List_Test(),
-        '/retest':(context)=>List_ReTest(),
-        '/about':(context)=>About(),
-
+        '/chat': (context) => ChatUi(), //命名路由
+        '/send': (context) => SendPage(),
+        '/beautiful': (context) => IntroTwoPage(),
+        '/login': (context) => Login(),
+        '/editinfo': (context) => EditInfo(),
+        '/lists': (context) => Lists(),
+        '/cet': (context) => List_Cet(),
+        '/test': (context) => List_Test(),
+        '/retest': (context) => List_ReTest(),
+        '/about': (context) => About(),
       },
       home: Tabs(),
     );
@@ -73,9 +70,8 @@ class MyApp extends StatelessWidget {
 //         //   ),
 //         //   overflow: TextOverflow.ellipsis,
 //         //   maxLines: 1,//最大行数
-//         //   textScaleFactor: 2,//放大倍数 
+//         //   textScaleFactor: 2,//放大倍数
 //         // ),
-
 
 //         height: 300.0,
 //         width: 300.0,

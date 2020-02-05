@@ -61,7 +61,7 @@ class About extends StatelessWidget {
             },
           ),
           new Divider(),
-          Text("特别感谢各位老师\同学给予的支持与帮助")
+          Text("特别感谢各位老师同学给予的支持与帮助",textAlign: TextAlign.center,)
         ],
       ),
     );
