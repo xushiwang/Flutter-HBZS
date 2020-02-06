@@ -36,6 +36,7 @@ class _MePageState extends State<MePage> {
       backgroundColor: Colors.white,
       drawer: MyDrawer(),
       appBar: AppBar(
+        iconTheme: IconThemeData(color:Colors.black),
         title: Text(nickname, style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.white,
         centerTitle: true,
