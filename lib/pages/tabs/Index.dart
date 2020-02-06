@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:hbzs/res/Browser.dart';
 import 'package:hbzs/res/MyDrawer.dart';
 import 'package:hbzs/res/customview.dart';
 
@@ -43,7 +45,36 @@ class _IndexPageState extends State<IndexPage> {
     for (var item in formList) {
       tiles.add(new Container(
           margin: new EdgeInsets.all(10.0),
-          child: Column(children: <Widget>[
+          child: GestureDetector(
+            onTap: (){
+              Navigator.of(context)
+                      .push(new MaterialPageRoute(builder: (_) {
+                    return Browser(
+                      url: "http://www.bjtuhbxy.edu.cn/"+item["href"],
+                      title: "校园动态",
+                    );
+                  }));
+            },
+            child:Column(children: <Widget>[
+            Row(
+              children: <Widget>[
+                new Icon(
+                  Icons.ac_unit,
+                  color: Colors.black26,
+                  size: 17.0,
+                ),
+                new Container(
+                  margin: new EdgeInsets.only(left: 5.0),
+                  child: new Text(
+                    '校园动态',
+                    style: new TextStyle(color: Color(0xFF888888)),
+                  ),
+                )
+              ],
+            ),
+            new Divider(
+              color: Color(0xFF888888),
+            ),
             Text(item['title']),
             new Margin(indent: 6.0),
             Image.network(
@@ -56,9 +87,9 @@ class _IndexPageState extends State<IndexPage> {
               style: new TextStyle(color: Color(0xFF888888)),
             ),
             new Divider(
-            color: Color(0xFF888888),
-          ),
-          ])));
+              color: Color(0xFF888888),
+            ),
+          ]))));
     }
     return Column(children: tiles);
   }
@@ -94,9 +125,62 @@ class _IndexPageState extends State<IndexPage> {
               child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              TodayKb(),
+              BigDivider(),
               buildGrid(),
             ],
           ))),
     );
+  }
+}
+
+class TodayKb extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: () {
+          print("查看课表");
+        },
+        child: Padding(
+          padding: EdgeInsets.all(18.0),
+          child: Column(
+            children: <Widget>[
+              Container(
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.camera,
+                      color: Colors.black26,
+                      size: 17.0,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 5.0),
+                      child: Text(
+                        '今日课表',
+                        style: new TextStyle(color: Color(0xFF888888)),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Divider(
+                color: Color(0xFF888888),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 30.0, bottom: 2.0),
+                child: Text("今天居然没有课~" + "\uD83D\uDE01"),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 30.0, bottom: 2.0),
+                child: Text('点我查看完整课表',
+                    style: TextStyle(
+                        color: Color(
+                          0xFF888888,
+                        ),
+                        fontSize: 12.0)),
+              ),
+            ],
+          ),
+        ));
   }
 }
