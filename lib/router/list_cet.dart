@@ -43,11 +43,13 @@ class _ListsState extends State<List_Cet> {
                 padding: EdgeInsets.only(top: 145),
                 height: MediaQuery.of(context).size.height,
                 width: double.infinity,
-                child: ListView.builder(
-                    itemCount: Listss.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return buildList(context, index);
-                    }),
+                child: cjzs == ""
+                    ? Center(child: CircularProgressIndicator())
+                    : ListView.builder(
+                        itemCount: Listss.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return buildList(context, index);
+                        }),
               ),
               Container(
                 height: 140,
@@ -224,11 +226,8 @@ class _ListsState extends State<List_Cet> {
   Future<void> _get_cj() async {
     final prefs = await SharedPreferences.getInstance();
     var data = prefs.getStringList("cj");
-    if(data!=null){
-
-    }else{
-      
-    }
+    if (data != null) {
+    } else {}
     FormData params = new FormData.from({
       'name': "yy",
       'account': prefs.getString("account"),
@@ -251,9 +250,9 @@ class _ListsState extends State<List_Cet> {
       }
     } on DioError catch (e) {
       // 请求错误处理
-      print("网络"+e.toString());
+      print("网络" + e.toString());
       Toast.show("网络错误,请检查网络连接", context,
-                        duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
     }
   }
 

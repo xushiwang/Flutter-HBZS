@@ -58,7 +58,7 @@ class _MePageState extends State<MePage> {
           BigDivider(),
           MyTitleList(),
           SizedBox(
-            height: 5.0,
+            height: 20.0,
             child: new Center(
               child: new Container(
                 height: 5.0,

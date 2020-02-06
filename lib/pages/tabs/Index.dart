@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hbzs/res/MyDrawer.dart';
 import 'package:hbzs/res/customview.dart';
+
 class IndexPage extends StatefulWidget {
   IndexPage({Key key}) : super(key: key);
 
@@ -23,30 +24,24 @@ class _IndexPageState extends State<IndexPage> {
             IconButton(
               icon: Icon(Icons.add),
               color: Colors.black,
-              onPressed: (){
+              onPressed: () {
                 print("打开发布动态页面");
-                // Navigator.of(context).push(
-                //   MaterialPageRoute(
-                //     builder: (context)=>SendPage()
-                //   )
-                // );
                 Navigator.pushNamed(context, '/send');
               },
             )
           ],
           title: Text(
             "首页",
-            style: TextStyle(
-              color: Colors.black
-              ),
-            ),
-          centerTitle: true,
+            style: TextStyle(color: Colors.black),
           ),
+          centerTitle: true,
+        ),
         body: Layout(),
       ),
     );
   }
 }
+
 class Layout extends StatelessWidget {
   const Layout({Key key}) : super(key: key);
 
@@ -56,7 +51,6 @@ class Layout extends StatelessWidget {
       children: <Widget>[
         TodayKb(),
         BigDivider(),
-        new One(),
         new One(),
       ],
     );
@@ -111,6 +105,35 @@ class TodayKb extends StatelessWidget {
 }
 
 class One extends StatelessWidget {
+  Map data = {
+	"cont": 3,
+	"main_url_list": [
+		{
+			"content": "寒假在即，为全面做好我校安全稳定工作，加强寒假期...",
+			"author": "宣传统战部",
+			"title": "我校开展2019——2020学年寒假前校园安全大检查",
+			"news_img": "http://www.bjtuhbxy.cn/__local/4/0E/B8/A34C4362E293302E620689E77B4_49F19397_169CA.jpg",
+			"news_time": "2020年01月07日 11:46",
+			"href": "info/1065/4675.htm"
+		},
+		{
+			"content": "1月2日下午，我校于行政楼二楼会议室召开2019年度教...",
+			"author": "宣传统战部",
+			"title": "我校召开2019年度教学督导工作总结会议",
+			"news_img": "http://www.bjtuhbxy.cn/__local/3/E7/A3/5766BD9AACAAF37B4A3B69B28A8_655BAAF2_15068.png",
+			"news_time": "2020年01月02日 23:47",
+			"href": "info/1065/4672.htm"
+		},
+		{
+			"content": "​",
+			"author": "宣传统战部",
+			"title": "北京交通大学海滨学院2020年新年献词",
+			"news_img": "http://www.bjtuhbxy.cn/__local/0/F6/78/03D6786125A3FE277CEB7C79F31_1DEBC611_176EF.jpg",
+			"news_time": "2019年12月31日 22:50",
+			"href": "info/1065/4670.htm"
+		}
+	]
+};
   @override
   Widget build(BuildContext context) {
     return new Padding(
@@ -143,30 +166,32 @@ class One extends StatelessWidget {
             child: new Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                new Text(
-                  '2018/09/14',
-                  style: new TextStyle(color: Color(0xFF888888)),
-                ),
-                new Margin(indent: 6.0),
-                new Image(
-                    image: new NetworkImage(
-                        'http://image.wufazhuce.com/Fn5E1UnrcvN0jwFRiOtDZ2WnQa4N')),
-                new Margin(indent: 6.0),
-                new Text(
-                  'Fahmi Ramadhan | 摄影',
-                  style: new TextStyle(color: Color(0xFF888888)),
-                ),
-                new Margin(indent: 6.0),
-                new Text(
-                  '所有的爱情，都是两个心灵相通的人胜利，无法相互了解的人失败，没有所谓对错。',
-                  textAlign: TextAlign.center,
-                  style: new TextStyle(color: Color(0xFF888888)),
-                ),
-                new Margin(indent: 6.0),
-                new Text(
-                  '《东京爱情故事》',
-                  style: new TextStyle(color: Color(0xFF888888)),
-                )
+                data == null
+                    ? Center(child: CircularProgressIndicator())
+                    : Container(
+                        child: ListView.builder(
+                            itemCount: data["main_url_list"].length(),
+                            itemBuilder: (BuildContext context, int index) {
+                              return Column(
+                                children: <Widget>[
+                                  new Text(
+                                    '2018/09/14',
+                                    style:
+                                        new TextStyle(color: Color(0xFF888888)),
+                                  ),
+                                  new Margin(indent: 6.0),
+                                  new Image(
+                                      image: new NetworkImage(
+                                      "")),
+                                  new Margin(indent: 6.0),
+                                  new Text(
+                                    data["main_url_list"]["title"],
+                                    style:
+                                        new TextStyle(color: Color(0xFF888888)),
+                                  ),
+                                ],
+                              );
+                            }))
               ],
             ),
           ),
@@ -177,4 +202,6 @@ class One extends StatelessWidget {
       ),
     );
   }
+
+  Dongtai() {}
 }

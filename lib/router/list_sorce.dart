@@ -46,11 +46,13 @@ class _listsstate extends State<Lists> {
                 padding: EdgeInsets.only(top: 145),
                 height: MediaQuery.of(context).size.height,
                 width: double.infinity,
-                child: ListView.builder(
-                    itemCount: listss.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return buildList(context, index);
-                    }),
+                child: pjxfjd == ""
+                    ? Center(child: CircularProgressIndicator())
+                    : ListView.builder(
+                        itemCount: listss.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return buildList(context, index);
+                        }),
               ),
               Container(
                 height: 140,
