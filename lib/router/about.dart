@@ -13,6 +13,7 @@ class About extends StatelessWidget {
         backgroundColor: Colors.white,
         title: Text('关于'),
         centerTitle: true,
+        iconTheme: IconThemeData(color: Colors.black),
       ),
       body: new ListView(
         children: <Widget>[

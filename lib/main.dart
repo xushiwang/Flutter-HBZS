@@ -7,6 +7,7 @@ import 'package:hbzs/router/list_test.dart';
 import 'package:hbzs/router/Chat.dart';
 import 'package:hbzs/router/editInfo.dart';
 import 'package:hbzs/router/about.dart';
+import 'package:hbzs/util/nosplash.dart';
 
 import 'pages/tabs.dart';
 import 'package:flutter/material.dart';
@@ -25,12 +26,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       debugShowCheckedModeBanner: false, //去掉debug
-      theme: ThemeData(
-        primarySwatch: Colors.grey,
+      theme: Theme.of(context).copyWith(
+        highlightColor: Colors.transparent,
+        splashFactory: const NoSplashFactory(),
       ),
+      // theme: ThemeData(
+      //   primarySwatch: Colors.grey,
+      // ),
       routes: {
         '/chat': (context) => ChatUi(), //命名路由
         '/send': (context) => SendPage(),

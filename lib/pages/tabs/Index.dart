@@ -19,6 +19,7 @@ class _IndexPageState extends State<IndexPage> {
         drawer: MyDrawer(),
         //backgroundColor: Colors.white,
         appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.white,
           actions: <Widget>[
             IconButton(

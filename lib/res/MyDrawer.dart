@@ -34,7 +34,8 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: CircleAvatar(
-                child: Icon(Icons.perm_data_setting),
+                child: Icon(Icons.perm_data_setting,color: Colors.black,),
+                backgroundColor: Colors.white10,
               ),
               title: Text('编辑资料'),
               onTap: (){
@@ -48,7 +49,8 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: CircleAvatar(
-                child: Icon(Icons.account_circle),
+                child: Icon(Icons.account_circle,color: Colors.black,),
+                backgroundColor: Colors.white10,
               ),
               title: Text('账号与安全'),
               onTap: (){
@@ -58,7 +60,8 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: CircleAvatar(
-                child: Icon(Icons.notification_important),
+                child: Icon(Icons.notification_important,color: Colors.black,),
+                backgroundColor: Colors.white10,
               ),
               title: Text('通知设置'),
               onTap: (){
@@ -67,7 +70,8 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: CircleAvatar(
-                child: Icon(Icons.lock),
+                child: Icon(Icons.lock,color: Colors.black,),
+                backgroundColor: Colors.white10,
               ),
               title: Text('隐私'),
               onTap: (){
@@ -76,7 +80,8 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: CircleAvatar(
-                child: Icon(Icons.clear_all),
+                child: Icon(Icons.clear_all,color: Colors.black,),
+                backgroundColor: Colors.white10,
               ),
               title: Text('清理缓存'),
               onTap: (){
@@ -90,7 +95,8 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: CircleAvatar(
-                child: Icon(Icons.thumb_up),
+                child: Icon(Icons.thumb_up,color: Colors.black,),
+                backgroundColor: Colors.white10,
               ),
               title: Text('鼓励一下'),
               onTap: (){
@@ -99,7 +105,8 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: CircleAvatar(
-                child: Icon(Icons.info),
+                child: Icon(Icons.info,color: Colors.black,),
+                backgroundColor: Colors.white10,
               ),
               title: Text('关于海滨助手'),
               onTap: (){
@@ -109,7 +116,8 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: CircleAvatar(
-                child: Icon(Icons.live_help),
+                child: Icon(Icons.live_help,color: Colors.black,),
+                backgroundColor: Colors.white10,
               ),
               title: Text('反馈与建议'),
               onTap: (){

@@ -7,11 +7,12 @@ class SendPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor:Colors.white,
-        title: Text('发布动态'),
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Text("发布动态", style: TextStyle(color: Colors.black)),
+        backgroundColor: Colors.white,
         centerTitle: true,
       ),
-      body: Text('123456789'),
+      body: Text("haha "),
     );
   }
 }
