@@ -11,7 +11,7 @@ class About extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text('关于'),
+        title: Text('关于',style: TextStyle(color:Colors.black),),
         centerTitle: true,
         iconTheme: IconThemeData(color: Colors.black),
       ),
