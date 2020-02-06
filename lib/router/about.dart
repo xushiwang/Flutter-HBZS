@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hbzs/res/Browser.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatelessWidget {
   const About({Key key}) : super(key: key);
@@ -58,6 +59,14 @@ class About extends StatelessWidget {
                   title: "软件官网",
                 );
               }));
+            },
+          ),
+          new ListTile(
+            leading: new Icon(Icons.phone),
+            title: new Text('联系与合作'),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: () {
+              launch("tel:+8615511581179");
             },
           ),
           new Divider(),
