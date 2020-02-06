@@ -20,9 +20,8 @@ class _listsstate extends State<Lists> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    this._get_cj();
+    this.getcj();
   }
 
   List listss = [];
@@ -283,7 +282,7 @@ class _listsstate extends State<Lists> {
     );
   }
 
-  Future<void> _get_cj() async {
+  Future<void> getcj() async {
     final prefs = await SharedPreferences.getInstance();
 
     FormData params = new FormData.from({

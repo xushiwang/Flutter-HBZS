@@ -14,6 +14,8 @@ import 'package:flutter/material.dart';
 import 'package:hbzs/router/login.dart';
 import 'package:hbzs/router/EveryImage.dart';
 
+import 'router/private.dart';
+
 //void main() => runApp(MyApp(),SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark););
 void main() {
   runApp(MyApp());
@@ -46,6 +48,7 @@ class MyApp extends StatelessWidget {
         '/test': (context) => List_Test(),
         '/retest': (context) => List_ReTest(),
         '/about': (context) => About(),
+        '/private':(context)=>Private()
       },
       home: Tabs(),
     );

@@ -76,6 +76,7 @@ class MyDrawer extends StatelessWidget {
               title: Text('隐私'),
               onTap: (){
                 print('点击了隐私');
+                Navigator.pushNamed(context, '/private');
               },
             ),
             ListTile(
@@ -184,7 +185,7 @@ class MyDrawer extends StatelessWidget {
   }
   void _clearCache() async {
      final prefs = await SharedPreferences.getInstance();
-     prefs.clear();
+     //prefs.clear();
     Directory tempDir = await getTemporaryDirectory();
       //删除缓存目录
       await delDir(tempDir);

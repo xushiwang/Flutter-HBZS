@@ -17,6 +17,9 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  transparent_image: '1.0.0'
+  local_auth: '0.5.2+4'
+  flutter_markdown: ^0.3.3
   charts_flutter: ^0.6.0
   url_launcher: 3.0.0
   shared_preferences: ^0.5.1

@@ -19,7 +19,7 @@ class _listsstate extends State<List_ReTest> {
   @override
   void initState() {
     super.initState();
-    this._get_cj();
+    this.getcj();
   }
 
   List listss = [];
@@ -216,7 +216,7 @@ class _listsstate extends State<List_ReTest> {
     );
   }
 
-  Future<void> _get_cj() async {
+  Future<void> getcj() async {
     final prefs = await SharedPreferences.getInstance();
 
     FormData params = new FormData.from({
