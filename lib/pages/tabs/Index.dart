@@ -41,7 +41,7 @@ class _IndexPageState extends State<IndexPage> {
   }
 
   Widget buildGrid() {
-    List<Widget> tiles = []; //先建一个数组用于存放循环生成的widget
+    List<Widget> tiles = []; //先建一个数组用于存放循环生成的widget 
     for (var item in formList) {
       tiles.add(new Container(
           margin: new EdgeInsets.all(10.0),

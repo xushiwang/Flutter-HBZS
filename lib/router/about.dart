@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:hbzs/res/Browser.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -24,19 +25,6 @@ class About extends StatelessWidget {
           ),
           new Divider(),
           new ListTile(
-            leading: new Icon(Icons.shop),
-            title: new Text('谷歌应用商店'),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: () {
-              Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
-                return new Browser(
-                  url: "https://play.google.com/",
-                  title: "谷歌应用商店",
-                );
-              }));
-            },
-          ),
-          new ListTile(
             leading: new Icon(Icons.code),
             title: new Text('GitHub查看源码'),
             trailing: Icon(Icons.arrow_forward_ios),
@@ -47,6 +35,14 @@ class About extends StatelessWidget {
                   title: "GitHub查看源码",
                 );
               }));
+            },
+          ),
+          new ListTile(
+            leading: new Icon(Icons.local_offer),
+            title: new Text('查看更新日志'),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: () {
+              Navigator.pushNamed(context, '/markdown');
             },
           ),
           new ListTile(

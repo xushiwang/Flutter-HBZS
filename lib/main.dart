@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:hbzs/router/Send.dart';
 import 'package:hbzs/router/list_cet.dart';
 import 'package:hbzs/router/list_retest.dart';
@@ -14,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:hbzs/router/login.dart';
 import 'package:hbzs/router/EveryImage.dart';
 
+import 'res/markdown.dart';
 import 'router/private.dart';
 
 //void main() => runApp(MyApp(),SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark););
@@ -48,7 +50,8 @@ class MyApp extends StatelessWidget {
         '/test': (context) => List_Test(),
         '/retest': (context) => List_ReTest(),
         '/about': (context) => About(),
-        '/private':(context)=>Private()
+        '/private':(context)=>Private(),
+        '/markdown':(context)=>MarkDown()
       },
       home: Tabs(),
     );
