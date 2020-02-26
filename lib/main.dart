@@ -1,5 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:hbzs/res/ShowImage.dart';
+import 'package:hbzs/res/ShowMD.dart';
 import 'package:hbzs/router/Send.dart';
 import 'package:hbzs/router/list_cet.dart';
 import 'package:hbzs/router/list_retest.dart';
@@ -33,8 +35,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false, //去掉debug
       theme: Theme.of(context).copyWith(
-        highlightColor: Colors.transparent,
+        highlightColor: Colors.white,
         splashFactory: const NoSplashFactory(),
+        accentColor: Colors.white,
+        backgroundColor: Colors.white
       ),
       // theme: ThemeData(
       //   primarySwatch: Colors.grey,
@@ -51,52 +55,11 @@ class MyApp extends StatelessWidget {
         '/retest': (context) => List_ReTest(),
         '/about': (context) => About(),
         '/private':(context)=>Private(),
-        '/markdown':(context)=>MarkDown()
+        '/markdown':(context)=>MarkDown(),
+        '/wxpay':(context)=>ShowImage(),
+        '/showMD':(context)=>ShowMD()
       },
       home: Tabs(),
     );
   }
 }
-
-// class HomeContext  extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Center(
-//       child: Container(
-//         child:Image.network(
-//           'https://www.hbxy.xyz/images/1.jpg',
-//           alignment: Alignment.center,
-//           color: Colors.purple,
-//           colorBlendMode: BlendMode.colorDodge,
-//           fit: BoxFit.cover,//显示方式
-//           ),
-//         // child: Text(
-//         //   '我是一个文本我是一个文本我是一个文本我是一个文本我是一个文本我是一个文本我是一个文本我是一个文本我是一个文本我是一个文本我是一个文本',
-//         //   textAlign: TextAlign.left,
-//         //   style: TextStyle(
-//         //     fontSize: 16.0,
-//         //     color: Color.fromARGB(255, 255, 255, 255),
-//         //     decorationColor: Colors.white
-//         //   ),
-//         //   overflow: TextOverflow.ellipsis,
-//         //   maxLines: 1,//最大行数
-//         //   textScaleFactor: 2,//放大倍数
-//         // ),
-
-//         height: 300.0,
-//         width: 300.0,
-//         decoration: BoxDecoration(
-//           color: Colors.pink,
-//           border: Border.all(
-//             color: Colors.blue,
-//             width: 2.0
-//             ),
-//           borderRadius: BorderRadius.all(
-//             Radius.circular(20)
-//           )
-//         ),
-//         padding: EdgeInsets.all(10.0),
-//         transform: Matrix4.rotationZ(0.3),
-//       ),
-//     );
-//   }

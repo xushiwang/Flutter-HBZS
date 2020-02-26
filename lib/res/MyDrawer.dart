@@ -102,6 +102,7 @@ class MyDrawer extends StatelessWidget {
               title: Text('鼓励一下'),
               onTap: (){
                 print('点击了鼓励一下');
+                Navigator.pushNamed(context, '/wxpay');
               },
             ),
             ListTile(

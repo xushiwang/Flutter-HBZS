@@ -83,6 +83,7 @@ flutter:
    - images/origami.png
    - images/xh.gif
    - images/bg.jpg
+   - wxpay.jpeg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
