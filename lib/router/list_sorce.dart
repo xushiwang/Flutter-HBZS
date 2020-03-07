@@ -209,9 +209,9 @@ class _listsstate extends State<Lists> {
                             color: primary, fontSize: 13, letterSpacing: .3)),
                   ],
                 ),
-                SizedBox(
-                  height: 6,
-                ),
+                // SizedBox(
+                //   height: 6,
+                // ),
                 Row(
                   children: <Widget>[
                     Icon(
@@ -232,19 +232,21 @@ class _listsstate extends State<Lists> {
                     SizedBox(
                       width: 15,
                     ),
-                    Icon(
-                      Icons.insert_emoticon,
-                      color: secondary,
-                      size: 20,
-                    ),
-                    Text("代码:" + listss[index]['course_code'],
-                        style: TextStyle(
-                            color: primary, fontSize: 13, letterSpacing: .3)),
                   ],
                 ),
-                SizedBox(
-                  height: 6,
-                ),
+                Row(children: <Widget>[
+                  Icon(
+                    Icons.insert_emoticon,
+                    color: secondary,
+                    size: 20,
+                  ),
+                  Text("代码:" + listss[index]['course_code'],
+                      style: TextStyle(
+                          color: primary, fontSize: 13, letterSpacing: .3)),
+                ]),
+                // SizedBox(
+                //   height: 6,
+                // ),
                 Row(
                   children: <Widget>[
                     Icon(

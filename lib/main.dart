@@ -1,5 +1,3 @@
-import 'package:flutter/services.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:hbzs/res/ShowImage.dart';
 import 'package:hbzs/res/ShowMD.dart';
 import 'package:hbzs/router/Send.dart';
@@ -10,6 +8,7 @@ import 'package:hbzs/router/list_test.dart';
 import 'package:hbzs/router/Chat.dart';
 import 'package:hbzs/router/editInfo.dart';
 import 'package:hbzs/router/about.dart';
+import 'package:hbzs/services/service_locator.dart';
 import 'package:hbzs/util/nosplash.dart';
 
 import 'pages/tabs.dart';
@@ -22,6 +21,7 @@ import 'router/private.dart';
 
 //void main() => runApp(MyApp(),SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark););
 void main() {
+  setupLocator();
   runApp(MyApp());
   //黑色
   //SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);

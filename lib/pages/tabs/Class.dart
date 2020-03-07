@@ -50,7 +50,7 @@ class _ClassPageState extends State<ClassPage> {
                   children: <Widget>[
                     TextField(
                       maxLines: null,
-                      autofocus: true,
+                      autofocus: false,//自动编辑
                       textAlign: TextAlign.start,
                       decoration: InputDecoration(
                           filled: true, fillColor: Colors.white),
