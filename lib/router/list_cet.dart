@@ -80,6 +80,7 @@ class _ListsState extends State<List_Cet> {
                       IconButton(
                         onPressed: () {
                           print("ECHARTS绘图");
+                          Navigator.pushNamed(context, '/echarts');
                         },
                         icon: Icon(
                           Icons.menu,

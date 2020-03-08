@@ -17,22 +17,19 @@ String txt = "";
 class _ShowImageState extends State<ShowImage> {
   @override
   void initState() {
-    getHttp().then((val) {
-      setState(() {
-        txt = val;
-      });
-    });
+    getHttp();
   }
 
-  Future getHttp() async {
+  getHttp() async {
     try {
       Response response;
       Dio dio = new Dio();
       response = await dio.get("https://xushiwang.github.io/wxpay.txt");
       print(response.data.toString());
-      return response.data;
+      setState(() {
+        txt = response.data.toString();
+      });
     } catch (e) {
-      return print(e);
     }
   }
 

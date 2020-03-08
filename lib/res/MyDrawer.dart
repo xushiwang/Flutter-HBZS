@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:hbzs/res/Browser.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toast/toast.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key key}) : super(key: key);
@@ -87,6 +88,7 @@ class MyDrawer extends StatelessWidget {
               title: Text('清理缓存'),
               onTap: (){
                 _clearCache();
+                Toast.show("已清理", context);
                 print('清理缓存');
               },
             ),

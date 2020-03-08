@@ -12,20 +12,18 @@ class _MarkDownState extends State<MarkDown> {
   
   @override
   void initState() {
-    getHttp().then((val){
-      setState(() {
-        txt=val;
-      });
-    });
-
+    getHttp();
   }
-   Future getHttp() async {
+  getHttp() async {
     try {
       Response response;
       Dio dio = new Dio();
       response =
           await dio.get("https://xushiwang.github.io/update_logs.txt");
       print(response.data.toString());
+      setState(() {
+        txt=response.data.toString();
+      });
       return response.data;
     } catch (e) {
       return print(e);

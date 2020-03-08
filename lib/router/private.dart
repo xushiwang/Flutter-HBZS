@@ -25,7 +25,8 @@ class _PrivateState extends State<Private> {
           centerTitle: true,
           iconTheme: IconThemeData(color: Colors.black),
         ),
-        body: Center());
+        body: Text("data")
+    );
   }
 
   auth(localAuth) async {
@@ -40,7 +41,6 @@ class _PrivateState extends State<Private> {
       signInTitle: '指纹验证',
       fingerprintRequiredTitle: '请先录入指纹!',
     );
-
     try {
       bool didAuthenticate = await localAuth.authenticateWithBiometrics(
           localizedReason: '扫描指纹进行身份识别',
@@ -49,11 +49,12 @@ class _PrivateState extends State<Private> {
           androidAuthStrings: andStrings);
       if (didAuthenticate == true) {
         Toast.show("认证成功", context);
+        return Text("sdd");
       } else {
         Toast.show("认证失败", context);
       }
     } catch (e) {
-      print("error:" + e.toString());
+      Toast.show("不能支持验证", context);
     }
   }
 }

@@ -1,6 +1,7 @@
 import 'package:hbzs/res/ShowImage.dart';
 import 'package:hbzs/res/ShowMD.dart';
 import 'package:hbzs/router/Send.dart';
+import 'package:hbzs/router/echarts.dart';
 import 'package:hbzs/router/list_cet.dart';
 import 'package:hbzs/router/list_retest.dart';
 import 'package:hbzs/router/list_sorce.dart';
@@ -55,7 +56,8 @@ class MyApp extends StatelessWidget {
         '/private':(context)=>Private(),
         '/markdown':(context)=>MarkDown(),
         '/wxpay':(context)=>ShowImage(),
-        '/showMD':(context)=>ShowMD()
+        '/showMD':(context)=>ShowMD(),
+        '/echarts':(context)=>Echarts()
       },
       home: Tabs(),
     );
