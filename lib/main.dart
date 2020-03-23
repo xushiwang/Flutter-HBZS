@@ -7,6 +7,7 @@ import 'package:hbzs/router/list_retest.dart';
 import 'package:hbzs/router/list_sorce.dart';
 import 'package:hbzs/router/list_test.dart';
 import 'package:hbzs/router/Chat.dart';
+import 'package:hbzs/router/WebVPN.dart';
 import 'package:hbzs/router/editInfo.dart';
 import 'package:hbzs/router/about.dart';
 import 'package:hbzs/util/nosplash.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
       // theme: ThemeData(
       //   primarySwatch: Colors.grey,
       // ),
+      
       routes: {
         '/chat': (context) => ChatUi(), //命名路由
         '/send': (context) => SendPage(),
@@ -57,7 +59,8 @@ class MyApp extends StatelessWidget {
         '/markdown':(context)=>MarkDown(),
         '/wxpay':(context)=>ShowImage(),
         '/showMD':(context)=>ShowMD(),
-        '/echarts':(context)=>Echarts()
+        '/echarts':(context)=>Echarts(),
+        '/webvpn':(context)=>WebVPN()
       },
       home: Tabs(),
     );

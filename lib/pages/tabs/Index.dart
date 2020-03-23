@@ -30,11 +30,9 @@ class _IndexPageState extends State<IndexPage> {
     try {
       Response response;
       Dio dio = new Dio();
-      response =
-          await dio.get("https://xxzx.bjtuhbxy.edu.cn/main/home/all_news");
-      print(json.decode(response.data)["main_url_list"]);
-
-      return json.decode(response.data)["main_url_list"];
+      response = await dio.get("https://xxzx.bjtuhbxy.edu.cn/wxApplets/spaces/home",queryParameters: {"news":"news"});
+      print(response.data);
+      return response.data["main_url_list"];
     } catch (e) {
       return print(e);
     }
@@ -50,7 +48,7 @@ class _IndexPageState extends State<IndexPage> {
               Navigator.of(context)
                       .push(new MaterialPageRoute(builder: (_) {
                     return Browser(
-                      url: "http://www.bjtuhbxy.edu.cn/"+item["href"],
+                      url: item["href"],
                       title: "校园动态",
                     );
                   }));

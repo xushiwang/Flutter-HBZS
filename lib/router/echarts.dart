@@ -41,7 +41,7 @@ class _EchartsState extends State<Echarts> {
       charts.Series<Linesales, DateTime>(
         data: dataLine,
         measureFn: (Linesales lines, _) => lines.cs,
-        measureFn: (Linesales lines, _) => lines.sale,
+        //measureFn: (Linesales lines, _) => lines.sale,
         id: "Lines",
       )
     ];

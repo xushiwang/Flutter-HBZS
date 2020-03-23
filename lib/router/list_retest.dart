@@ -42,11 +42,11 @@ class _listsstate extends State<List_ReTest> {
                 width: double.infinity,
                 child: cjzs == ""
                     ? Center(child: CircularProgressIndicator())
-                    :ListView.builder(
-                    itemCount: listss.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return buildList(context, index);
-                    }),
+                    : ListView.builder(
+                        itemCount: listss.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return buildList(context, index);
+                        }),
               ),
               Container(
                 height: 140,
@@ -220,16 +220,17 @@ class _listsstate extends State<List_ReTest> {
   Future<void> getcj() async {
     final prefs = await SharedPreferences.getInstance();
 
-    FormData params = new FormData.from({
-      'name': "bk",
-      'account': prefs.getString("account"),
-      'numb': prefs.getString("secret")
-    });
     //print(params);
     Dio dio = new Dio();
     try {
+      Map<String, String> map = {
+        'name': "bk",
+        'account': prefs.getString("account"),
+        'numb': prefs.getString("secret")
+      };
+      FormData formData = FormData.fromMap(map);
       Response response = await dio
-          .post("https://xxzx.bjtuhbxy.edu.cn/login/main/get_bk", data: params);
+          .post("https://xxzx.bjtuhbxy.edu.cn/login/main/ios/bk", data:formData);
       if (response.statusCode == 200) {
         if (json.decode(response.data)["bk_flag"] == 1) {
           //   print(json.decode(response.data)["cj_all"]);

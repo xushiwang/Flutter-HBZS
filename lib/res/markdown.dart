@@ -40,7 +40,7 @@ class _MarkDownState extends State<MarkDown> {
         backgroundColor: Colors.white,
         centerTitle: true,
       ),
-      body: Markdown(data: txt.toString())
+      body: txt==""? Center(child: CircularProgressIndicator(backgroundColor: Colors.grey,)):Markdown(data: txt.toString())
     );
   }
 }

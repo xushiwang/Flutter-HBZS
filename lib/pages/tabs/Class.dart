@@ -330,13 +330,16 @@ class _ClassPageState extends State<ClassPage> {
     print("获取周次信息");
     Dio dio = new Dio();
     try {
+      //Map<String,String> map = {'week':"week"};
       Response response =
-          await dio.get("https://xxzx.bjtuhbxy.edu.cn/get_week");
+          await dio.get("https://xxzx.bjtuhbxy.edu.cn/wxApplets/spaces/week",queryParameters: {'week':"week"});
+          print(response.data);
+          print(response.data["interval"]);
       if (response.statusCode == 200) {
-        if (json.decode(response.data)["flag"] != 0) {
+        if (response.data["flag"] != 0) {
           setState(() {
             _week =
-                "第" + json.decode(response.data)["interval"].toString() + "周";
+                "第" + response.data["interval"].toString() + "周";
           });
         } else {
           setState(() {
@@ -949,13 +952,18 @@ class _ClassPageState extends State<ClassPage> {
   }
 
   Future<void> net(String account0, String secret0, String key, l) async {
+    final prefs = await SharedPreferences.getInstance();
     print("获取课表信息");
-    FormData params =
-        new FormData.from({'name': "kb", 'account': account0, 'numb': secret0});
     Dio dio = new Dio();
     try {
+      Map<String, String> map = {
+        'name': "kb",
+        'account': prefs.getString("account"),
+        'numb': prefs.getString("secret")
+      };
+      FormData formData = FormData.fromMap(map);
       Response response = await dio
-          .post("https://xxzx.bjtuhbxy.edu.cn/login/main/get_kb", data: params);
+          .post("https://xxzx.bjtuhbxy.edu.cn/login/main/ios/kb", data: formData);
       if (response.statusCode == 200) {
         print(response.data.toString());
         Map data1 = json.decode(response.data);

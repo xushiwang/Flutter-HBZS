@@ -16,7 +16,7 @@ class ShowMD extends StatelessWidget {
         title: Text("赞赏记录",style: TextStyle(color:Colors.black),),
         centerTitle: true,
       ),
-      body:Markdown(data: txt.toString())
+      body:txt==""?Center(child: CircularProgressIndicator(backgroundColor: Colors.grey,)):Markdown(data: txt.toString())
     );
   }
 }

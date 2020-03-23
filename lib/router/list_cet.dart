@@ -229,20 +229,19 @@ class _ListsState extends State<List_Cet> {
     var data = prefs.getStringList("cj");
     if (data != null) {
     } else {}
-    FormData params = new FormData.from({
-      'name': "yy",
-      'account': prefs.getString("account"),
-      'numb': prefs.getString("secret")
-    });
     //print(params);
     Dio dio = new Dio();
     try {
+      Map<String, String> map = {
+        'name': "yy",
+        'account': prefs.getString("account"),
+        'numb': prefs.getString("secret")
+      };
+      FormData formData = FormData.fromMap(map);
       Response response = await dio
-          .post("https://xxzx.bjtuhbxy.edu.cn/login/main/get_yy", data: params);
+          .post("https://xxzx.bjtuhbxy.edu.cn/login/main/ios/yy", data: formData);
       if (response.statusCode == 200) {
         if (json.decode(response.data)["yy_flag"] == 1) {
-          //   print(json.decode(response.data)["cj_all"]);
-          //   List DATA1 = json.decode(response.data)["cj_all"];
           setState(() {
             Listss = json.decode(response.data)["yy_all"];
             cjzs = json.decode(response.data)["exam_number"].toString();

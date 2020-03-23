@@ -223,16 +223,17 @@ class _ListsState extends State<List_Test> {
   Future<void> _get_cj() async {
     final prefs = await SharedPreferences.getInstance();
 
-    FormData params = new FormData.from({
-      'name': "ks",
-      'account': prefs.getString("account"),
-      'numb': prefs.getString("secret")
-    });
+    
     //print(params);
     Dio dio = new Dio();
-    try {
+    try {Map<String, String> map = {
+        'name': "ks",
+        'account': prefs.getString("account"),
+        'numb': prefs.getString("secret")
+      };
+      FormData formData = FormData.fromMap(map);
       Response response = await dio
-          .post("https://xxzx.bjtuhbxy.edu.cn/login/main/get_ks", data: params);
+          .post("https://xxzx.bjtuhbxy.edu.cn/login/main/ios/ks", data:formData);
       if (response.statusCode == 200) {
         if (json.decode(response.data)["ks_flag"] == 1) {
           //   print(json.decode(response.data)["cj_all"]);

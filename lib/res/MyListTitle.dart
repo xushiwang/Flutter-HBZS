@@ -29,6 +29,33 @@ class MyTitleList extends StatelessWidget {
       ),
       ListTile(
         trailing: Icon(Icons.arrow_forward_ios),
+        leading: Icon(Icons.network_check),
+        title: Text(
+          'WebVPN',
+          style: TextStyle(
+            
+            color: Colors.black
+          ),
+        ),
+        onTap: () {
+          // Navigator.pushNamed(context, '/webvpn');
+          Navigator.of(context)
+                      .push(new MaterialPageRoute(builder: (_) {
+                    return Browser(
+                      url: "https://vpn.bjtuhbxy.cn",
+                      title: "WebVPN",
+                    );
+                  }));
+        },
+      ),
+
+      //分割线
+      Container(
+        child: Divider(height: 2,color: Colors.grey),
+        padding: EdgeInsets.fromLTRB(70, 0, 0, 0),
+      ),
+      ListTile(
+        trailing: Icon(Icons.arrow_forward_ios),
         leading: Icon(Icons.thumb_up),
         title: Text(
           '成绩查询',
@@ -100,6 +127,9 @@ class MyTitleList extends StatelessWidget {
           Navigator.pushNamed(context, '/retest');
         },
       ),
+
+
+     
 
       //分割线
       Container(
