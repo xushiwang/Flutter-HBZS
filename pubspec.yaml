@@ -86,6 +86,7 @@ flutter:
    - images/xh.gif
    - images/bg.jpg
    - images/wxpay.jpeg
+   - images/loading.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

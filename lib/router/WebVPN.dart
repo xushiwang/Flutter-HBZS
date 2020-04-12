@@ -12,7 +12,7 @@ import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 
 class WebVPN extends StatelessWidget {
   var webvpnURL = "https://vpn.bjtuhbxy.cn";
-  var webvpnToken = "rNHhqGecsUGPgqyVJkjC6XSW";
+  var webvpnToken = "";
   var login = false;
   var cookieJar = CookieJar();
   var cookie = null;

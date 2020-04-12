@@ -9,7 +9,14 @@ import 'package:toast/toast.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Login extends StatelessWidget {
+import '../main.dart';
+
+class Login extends StatefulWidget {
+  Login({Key key}):super(key:key);
+  @override
+  _Login createState() => _Login();
+}
+class _Login extends State<Login>{
   final TextEditingController controlleruser = new TextEditingController();
   final TextEditingController controllerpwd = new TextEditingController();
 
@@ -176,9 +183,11 @@ class Login extends StatelessWidget {
 
                     Dio dio = new Dio();
                     try {
-                      Map<String,String> map = {'name': controlleruser.text.toString(),
-                          'pasd': controllerpwd.text.toString()};
-                     FormData formData = FormData.fromMap(map);
+                      Map<String, String> map = {
+                        'name': controlleruser.text.toString(),
+                        'pasd': controllerpwd.text.toString()
+                      };
+                      FormData formData = FormData.fromMap(map);
                       print(formData);
                       Response response = await dio.post(
                         "https://xxzx.bjtuhbxy.edu.cn/login/main/ios",
@@ -198,10 +207,11 @@ class Login extends StatelessWidget {
                           prefs.setString(
                               'name', json.decode(response.data)["name"]);
                           print(prefs.getString("name"));
+                          Navigator.of(context).pushReplacementNamed('/tabs');
                         } else {
                           Toast.show(
                               json.decode(response.data)["error"], context,
-                              duration: Toast.LENGTH_SHORT,
+                              duration: Toast.LENGTH_LONG,
                               gravity: Toast.BOTTOM);
                         }
                       } else {
@@ -215,7 +225,7 @@ class Login extends StatelessWidget {
                     }
                   } else {
                     Toast.show("用户名和密码均不能为空", context,
-                        duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
+                        duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
                   }
                 },
                 shape: RoundedRectangleBorder(

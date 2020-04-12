@@ -10,6 +10,7 @@ import 'package:hbzs/router/Chat.dart';
 import 'package:hbzs/router/WebVPN.dart';
 import 'package:hbzs/router/editInfo.dart';
 import 'package:hbzs/router/about.dart';
+import 'package:hbzs/router/loadPage.dart';
 import 'package:hbzs/util/nosplash.dart';
 
 import 'pages/tabs.dart';
@@ -60,9 +61,11 @@ class MyApp extends StatelessWidget {
         '/wxpay':(context)=>ShowImage(),
         '/showMD':(context)=>ShowMD(),
         '/echarts':(context)=>Echarts(),
-        '/webvpn':(context)=>WebVPN()
+        '/webvpn':(context)=>WebVPN(),
+        '/loading':(context)=>LoadPage(),
+        '/tabs':(context)=>Tabs()
       },
-      home: Tabs(),
+      home: LoadPage(),
     );
   }
 }

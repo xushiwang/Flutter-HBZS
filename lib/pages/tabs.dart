@@ -11,14 +11,6 @@ class Tabs extends StatefulWidget {
 }
 
 class __TabsState extends State<Tabs> {
-  // int _currentIndex=0;
-  // List _pageList=[
-  //   IndexPage(),
-  //   SearchPage(),
-  //   ClassPage(),
-  //   MessagePage(),
-  //   MePage()
-  // ];
 
  @override
   void dispose() {
