@@ -189,10 +189,11 @@ class MyDrawer extends StatelessWidget {
   void _clearCache() async {
      final prefs = await SharedPreferences.getInstance();
      //prefs.clear();
-    Directory tempDir = await getTemporaryDirectory();
+      Directory tempDir = await getTemporaryDirectory();
       //删除缓存目录
       await delDir(tempDir);
       await loadCache();
+    
       print("缓存清理");
   }
   ///递归方式删除目录

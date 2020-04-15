@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hbzs/res/Browser.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyTitleList extends StatelessWidget {
   const MyTitleList({Key key}) : super(key: key);
@@ -146,11 +147,17 @@ class MyTitleList extends StatelessWidget {
           ),
         ),
         onTap: () {
+          exit();
           print('执行退出帐号程序 清除系统帐号 密码缓存');
-          Navigator.pushNamed(context, '/login');
+          Navigator.of(context).pushReplacementNamed('/login');
         },
       ),
       
     ]);
+  }
+   void exit() async {
+    final prefs = await SharedPreferences.getInstance();
+     //prefs.clear();
+    prefs.remove("account");
   }
 }

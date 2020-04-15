@@ -97,7 +97,6 @@ class _IndexPageState extends State<IndexPage> {
     return Scaffold(
       body: Scaffold(
           backgroundColor: Colors.white,
-          //drawerScrimColor: Colors.transparent.withOpacity(0.8),
           drawer: MyDrawer(),
           //backgroundColor: Colors.white,
           appBar: AppBar(

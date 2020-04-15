@@ -209,7 +209,7 @@ class Header extends StatelessWidget {
                   margin: new EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: new AssetImage('assets/imgs/ic_menu_bus.png'),
+                      image: new AssetImage('images/cx.png'),
                       //从Assets加载图片
                       fit: BoxFit.cover,
                     ),
@@ -234,7 +234,7 @@ class Header extends StatelessWidget {
                   margin: new EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: new AssetImage('assets/imgs/ic_menu_system.png'),
+                      image: new AssetImage('images/cx.png'),
                       //从Assets加载图片
                       fit: BoxFit.cover,
                     ),

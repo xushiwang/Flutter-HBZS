@@ -15,13 +15,13 @@ class _LoadPageState extends State<LoadPage> {
     init();
     super.initState();
         Future.delayed(Duration(seconds:3),(){
-         flag!=null? Navigator.of(context).pushReplacementNamed('/tabs'):Navigator.of(context).pushReplacementNamed('/login');
+         (flag!=null&&flag!="")? Navigator.of(context).pushReplacementNamed('/tabs'):Navigator.of(context).pushReplacementNamed('/login');
       
     });
   }
   init() async {
     final prefs = await SharedPreferences.getInstance();
-     flag=prefs.getString("account");
+    flag=prefs.getString("account");
   }
 
   @override

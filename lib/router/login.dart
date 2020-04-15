@@ -198,8 +198,6 @@ class _Login extends State<Login>{
                         if (json.decode(response.data)["login_flag"] == 1) {
                           //登录成功
                           final prefs = await SharedPreferences.getInstance();
-                          print("XCCCCCCCCCCCCCCCCCCCC" +
-                              response.data.toString());
                           prefs.setString(
                               'account', json.decode(response.data)["account"]);
                           prefs.setString(

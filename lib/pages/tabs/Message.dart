@@ -1,5 +1,7 @@
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:hbzs/res/Browser.dart';
 class MessagePage extends StatefulWidget {
   MessagePage({Key key}) : super(key: key);
 
@@ -8,6 +10,29 @@ class MessagePage extends StatefulWidget {
 }
 
 class _MessagePageState extends State<MessagePage> {
+
+  List formList = [];
+  initState() {
+    super.initState();
+    getHttp().then((val) {
+      setState(() {
+        formList = val.toList();
+      });
+    });
+  }
+
+  Future getHttp() async {
+    try {
+      Response response;
+      Dio dio = new Dio();
+      response = await dio.get("https://xxzx.bjtuhbxy.edu.cn/wxApplets/spaces/home",queryParameters: {"news":"news"});
+      print(response.data);
+      return response.data["main_url_list"];
+    } catch (e) {
+      return print(e);
+    }
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,8 +53,66 @@ class _MessagePageState extends State<MessagePage> {
           ),
         ],
       ),
-       body: Message(),
+       body:SingleChildScrollView(
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Message(),
+              buildGrid(),
+            ],
+          ))
     );
+  }
+  Widget buildGrid() {
+    List<Widget> tiles = []; //先建一个数组用于存放循环生成的widget 
+    for (var item in formList) {
+      tiles.add(new Container(
+          margin: new EdgeInsets.all(10.0),
+          child: GestureDetector(
+            onTap: (){
+              Navigator.of(context)
+                      .push(new MaterialPageRoute(builder: (_) {
+                    return Browser(
+                      url: item["href"],
+                      title: "校园动态",
+                    );
+                  }));
+            },
+            child:Column(children: <Widget>[
+            Row(
+              children: <Widget>[
+                new Icon(
+                  Icons.ac_unit,
+                  color: Colors.black26,
+                  size: 17.0,
+                ),
+                new Container(
+                  margin: new EdgeInsets.only(left: 5.0),
+                  child: new Text(
+                    '校园动态',
+                    style: new TextStyle(color: Color(0xFF888888)),
+                  ),
+                )
+              ],
+            ),
+            new Divider(
+              color: Color(0xFF888888),
+            ),
+            Text(item['title']),
+            Image.network(
+              item['news_img'],
+              fit: BoxFit.cover,
+            ),
+            new Text(
+              item['content'],
+              style: new TextStyle(color: Color(0xFF888888)),
+            ),
+            new Divider(
+              color: Color(0xFF888888),
+            ),
+          ]))));
+    }
+    return Column(children: tiles);
   }
 }
 class Message extends StatelessWidget {
