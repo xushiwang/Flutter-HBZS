@@ -17,7 +17,7 @@ class _listsstate extends State<Lists> {
 
   final primary = Color(0xff696b9e);
   final secondary = Color(0xfff29a94);
-
+  
   @override
   void initState() {
     super.initState();
@@ -28,6 +28,8 @@ class _listsstate extends State<Lists> {
   String pjxfjd = "";
   String zyzrs = "";
   String xfjdzh = "";
+  String account;
+  String secret;
 
   final TextEditingController _controller = new TextEditingController();
 
@@ -288,14 +290,11 @@ class _listsstate extends State<Lists> {
   Future<void> getcj() async {
     final prefs = await SharedPreferences.getInstance();
 
-    
-    //print(params);
-
     try {
       Map<String, String> map = {
         'name': "cj",
-        'account': prefs.getString("account"),
-        'numb': prefs.getString("secret")
+        'account':  prefs.getString("account"),
+        'numb':  prefs.getString("account"),
       };
       FormData formData = FormData.fromMap(map);
       Dio dio = new Dio();

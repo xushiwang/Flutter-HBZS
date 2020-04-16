@@ -77,7 +77,7 @@ class Network{
 
       if (response.statusCode == 200) {
         if (json.decode(response.data)["login_flag"] == 1) {
-          Toast.show("自动登录成功", null,
+          Toast.show("自动登录成功",context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
         } else {
           Navigator.of(context).pushReplacementNamed('/login');

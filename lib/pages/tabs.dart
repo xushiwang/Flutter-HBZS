@@ -16,12 +16,7 @@ class Tabs extends StatefulWidget {
 }
 
 class __TabsState extends State<Tabs> {
-
- @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
+  
  @override
   void dispose() {
     indexcontroller.close();
@@ -185,7 +180,7 @@ class _FancyBottomNavigationState extends State<FancyBottomNavigation> {
 
   @override
   Widget build(BuildContext context) {
-    login();
+
     activeColor =
         (activeColor == null) ? Theme.of(context).accentColor : activeColor;
 
@@ -207,7 +202,6 @@ class _FancyBottomNavigationState extends State<FancyBottomNavigation> {
           return GestureDetector(
             onTap: () {
               onItemSelected(index);
-
               setState(() {
                 _selectedIndex = index;
               });
@@ -218,37 +212,7 @@ class _FancyBottomNavigationState extends State<FancyBottomNavigation> {
       ),
     );
   }
-  login()  async {
-    SharedPreferences prefs;
-    Dio dio = new Dio();
-    try {
-      Map<String, String> map = {
-        'name': prefs.getString("account"),
-        'pasd': prefs.getString("secret")
-      };
-      FormData formData = FormData.fromMap(map);
-      print(formData);
-      Response response = await dio.post(
-        "https://xxzx.bjtuhbxy.edu.cn/login/main/ios",
-        data: formData,
-      );
-
-      if (response.statusCode == 200) {
-        if (json.decode(response.data)["login_flag"] == 1) {
-          Toast.show("自动登录成功",context,
-          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-        } else {
-          Navigator.of(context).pushReplacementNamed('/login');
-        }
-      } else {
-        Toast.show("网络错误,请检查网络连接", context,
-          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-      }
-    } on DioError catch (e) {
-      Toast.show("网络错误,请检查网络连接", context,
-          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-    }
-  }
+  
 }
 
 class FancyBottomNavigationItem {

@@ -69,6 +69,7 @@ class MyTitleList extends StatelessWidget {
           Navigator.pushNamed(context, '/lists');
         },
       ),
+      
       //分割线
       Container(
         child: Divider(height: 2,color: Colors.grey),

@@ -969,7 +969,6 @@ class _ClassPageState extends State<ClassPage> {
         Map data1 = json.decode(response.data);
         Map<String, dynamic> map = data1;
         KbData data = KbData.fromJson(map);
-        print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         setKb(account0,data, key, l);
       }
     } on DioError {

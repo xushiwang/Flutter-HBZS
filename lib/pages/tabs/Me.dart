@@ -45,7 +45,6 @@ class _MePageState extends State<MePage> {
             icon: Icon(Icons.share),
             color: Colors.black,
             onPressed: () {
-              print('分享1');
               Share.share("【海滨助手】\n https://www.hbxy.xyz/");
             },
           )
