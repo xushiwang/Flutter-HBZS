@@ -1,3 +1,4 @@
+import 'package:flutter_jpush/flutter_jpush.dart';
 import 'package:hbzs/res/ShowImage.dart';
 import 'package:hbzs/res/ShowMD.dart';
 import 'package:hbzs/router/Send.dart';
@@ -31,20 +32,43 @@ void main() {
 //自定义组件需要继承StatelessWidget
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  void _initJPush() async {
+    await FlutterJPush.startup();
+    print("初始化jpush成功");
+
+    // 获取 registrationID
+    var registrationID = await FlutterJPush.getRegistrationID();
+    print(registrationID);
+
+    // 注册接收和打开 Notification()
+    _initNotification();
+  }
+
+  void _initNotification() async {
+    FlutterJPush.addReceiveNotificationListener(
+        (JPushNotification notification) {
+      print("收到推送提醒: $notification");
+    });
+
+    FlutterJPush.addReceiveOpenNotificationListener(
+        (JPushNotification notification) {
+      print("打开了推送提醒: $notification");
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false, //去掉debug
       theme: Theme.of(context).copyWith(
-        highlightColor: Colors.white,
-        splashFactory: const NoSplashFactory(),
-        accentColor: Colors.white,
-        backgroundColor: Colors.white
-      ),
+          highlightColor: Colors.white,
+          splashFactory: const NoSplashFactory(),
+          accentColor: Colors.white,
+          backgroundColor: Colors.white),
       // theme: ThemeData(
       //   primarySwatch: Colors.grey,
       // ),
-      
+
       routes: {
         '/chat': (context) => ChatUi(), //命名路由
         '/send': (context) => SendPage(),
@@ -56,15 +80,16 @@ class MyApp extends StatelessWidget {
         '/test': (context) => ListTest(),
         '/retest': (context) => ListReTest(),
         '/about': (context) => About(),
-        '/private':(context)=>Private(),
-        '/markdown':(context)=>MarkDown(),
-        '/wxpay':(context)=>ShowImage(),
-        '/showMD':(context)=>ShowMD(),
-        '/echarts':(context)=>Echarts(),
-        '/webvpn':(context)=>WebVPN(),
-        '/loading':(context)=>LoadPage(),
-        '/tabs':(context)=>Tabs()
+        '/private': (context) => Private(),
+        '/markdown': (context) => MarkDown(),
+        '/wxpay': (context) => ShowImage(),
+        '/showMD': (context) => ShowMD(),
+        '/echarts': (context) => Echarts(),
+        '/webvpn': (context) => WebVPN(),
+        '/loading': (context) => LoadPage(),
+        '/tabs': (context) => Tabs()
       },
+      
       home: LoadPage(),
     );
   }

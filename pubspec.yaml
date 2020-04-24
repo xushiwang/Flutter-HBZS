@@ -35,6 +35,9 @@ dependencies:
   share: ^0.6.1+1
   get_it: ^1.0.3+2
   dio_cookie_manager: ^1.0.0
+  
+  flutter_app_badger: ^1.1.2
+  flutter_jpush: ^0.0.4
   flutter:
     sdk: flutter
     

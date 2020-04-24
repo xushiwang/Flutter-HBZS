@@ -230,6 +230,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_app_badger:
+    dependency: "direct main"
+    description:
+      name: flutter_app_badger
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.1.2"
   flutter_cache_manager:
     dependency: transitive
     description:
@@ -244,6 +251,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.1.0"
+  flutter_jpush:
+    dependency: "direct main"
+    description:
+      name: flutter_jpush
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.4"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:

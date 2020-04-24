@@ -4,6 +4,7 @@ import 'package:hbzs/res/customview.dart';
 import 'package:share/share.dart';
 import 'package:hbzs/res/MyListTitle.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_app_badger/flutter_app_badger.dart';
 
 class MePage extends StatefulWidget {
   MePage({Key key}) : super(key: key);
@@ -183,6 +184,8 @@ class Header extends StatelessWidget {
               ),
               onTap: () {
                 print("1");
+                print(FlutterAppBadger.isAppBadgeSupported());
+                FlutterAppBadger.updateBadgeCount(1);
               },
             ),
             flex: 1,
