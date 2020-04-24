@@ -157,7 +157,8 @@ class MyTitleList extends StatelessWidget {
   }
    void exit() async {
     final prefs = await SharedPreferences.getInstance();
-     //prefs.clear();
+    prefs.clear();
     prefs.remove("account");
+    prefs.remove("secret");
   }
 }

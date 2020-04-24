@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:hbzs/model/User.dart';
 import 'package:hbzs/res/Browser.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -23,10 +24,10 @@ class _MessagePageState extends State<MessagePage> {
 
   Future getHttp() async {
     try {
+      User a = new User('16851144', "sd");
       Response response;
-      final prefs = await SharedPreferences.getInstance();
       Dio dio = new Dio();
-      Map<String, String> map = {'uid':prefs.getString("account")};
+      Map<String, String> map = {'uid':a.account};
       FormData formData = FormData.fromMap(map);
       response = await dio.post(
           "http://192.168.1.114:8080/admin.php?c=Notify&a=index",

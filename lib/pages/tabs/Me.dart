@@ -74,8 +74,7 @@ class _MePageState extends State<MePage> {
           ),
           Text(
             "--- 没有了 ---\n",
-            style: TextStyle(color: Colors.black,fontSize: 10),
-            
+            style: TextStyle(color: Colors.black, fontSize: 10),
             textAlign: TextAlign.center,
           )
         ],
@@ -109,18 +108,21 @@ class Card extends StatelessWidget {
                 new Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    //昵称
-                    Container(
-                      alignment: Alignment.topLeft,
-                      margin: EdgeInsets.only(left: 25.0),
-                      child: Text(
-                        '许一生所爱',
-                        style: TextStyle(
-                            // color: Color(0xFF888888),//浅灰
-                            color: Colors.black,
-                            fontSize: 16),
+                    Row(children: <Widget>[
+                      SizedBox(width:25),
+                      Image.asset("images/vip_s.png",width: true?16:0),
+                      Container(
+                        alignment: Alignment.topLeft,
+                        margin: EdgeInsets.only(left: 3.0),
+                        child: Text(
+                          '许一生所爱',
+                          style: TextStyle(
+                              // color: Color(0xFF888888),//浅灰
+                              color: Colors.black,
+                              fontSize: 16),
+                        ),
                       ),
-                    ),
+                    ]),
                     //个性签名
                     Container(
                       margin: EdgeInsets.only(left: 25.0, top: 8),
@@ -157,129 +159,150 @@ class Header extends StatelessWidget {
       child: new Row(
         children: <Widget>[
           new Expanded(
-            child: new Column(
-              children: <Widget>[
-                //头像
-                new Container(
-                  width: 60.0,
-                  height: 60.0,
-                  margin: new EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: new AssetImage('images/kb.png'),
-                      //从Assets加载图片
-                      fit: BoxFit.cover,
+            child: GestureDetector(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    width: 60.0,
+                    height: 60.0,
+                    margin: new EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: new AssetImage('images/kb.png'),
+                        //从Assets加载图片
+                        fit: BoxFit.cover,
+                      ),
+                      shape: BoxShape.circle,
                     ),
-                    shape: BoxShape.circle,
                   ),
-                ),
-                new Text(
-                  '签到',
-                  textAlign: TextAlign.center,
-                )
-              ],
+                  new Text(
+                    '签到',
+                    textAlign: TextAlign.center,
+                  )
+                ],
+              ),
+              onTap: () {
+                print("1");
+              },
             ),
             flex: 1,
           ),
           new Expanded(
-            child: new Column(
-              children: <Widget>[
-                //头像
-                new Container(
-                  width: 60.0,
-                  height: 60.0,
-                  margin: new EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: new AssetImage('images/cx.png'),
-                      //从Assets加载图片
-                      fit: BoxFit.cover,
+            child: GestureDetector(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    width: 60.0,
+                    height: 60.0,
+                    margin: new EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: new AssetImage('images/kb.png'),
+                        //从Assets加载图片
+                        fit: BoxFit.cover,
+                      ),
+                      shape: BoxShape.circle,
                     ),
-                    shape: BoxShape.circle,
                   ),
-                ),
-                new Text(
-                  '每日一句',
-                  textAlign: TextAlign.center,
-                )
-              ],
+                  new Text(
+                    '校历查询',
+                    textAlign: TextAlign.center,
+                  )
+                ],
+              ),
+              onTap: () {
+                print("2");
+              },
             ),
             flex: 1,
           ),
           new Expanded(
-            child: new Column(
-              children: <Widget>[
-                new Container(
-                  width: 60.0,
-                  height: 60.0,
-                  margin: new EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: new AssetImage('images/cx.png'),
-                      //从Assets加载图片
-                      fit: BoxFit.cover,
+            child: GestureDetector(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    width: 60.0,
+                    height: 60.0,
+                    margin: new EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: new AssetImage('images/kb.png'),
+                        //从Assets加载图片
+                        fit: BoxFit.cover,
+                      ),
+                      shape: BoxShape.circle,
                     ),
-                    shape: BoxShape.circle,
                   ),
-                ),
-                new Text(
-                  '',
-                  textAlign: TextAlign.center,
-                )
-              ],
+                  new Text(
+                    '每日一句',
+                    textAlign: TextAlign.center,
+                  )
+                ],
+              ),
+              onTap: () {
+                print("1");
+              },
             ),
             flex: 1,
           ),
           new Expanded(
-            child: new Column(
-              children: <Widget>[
-                //头像
-                new Container(
-                  width: 60.0,
-                  height: 60.0,
-                  margin: new EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: new AssetImage('images/cx.png'),
-                      //从Assets加载图片
-                      fit: BoxFit.cover,
+            child: GestureDetector(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    width: 60.0,
+                    height: 60.0,
+                    margin: new EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: new AssetImage('images/kb.png'),
+                        //从Assets加载图片
+                        fit: BoxFit.cover,
+                      ),
+                      shape: BoxShape.circle,
                     ),
-                    shape: BoxShape.circle,
                   ),
-                ),
-                new Text(
-                  '校园系统',
-                  textAlign: TextAlign.center,
-                )
-              ],
+                  new Text(
+                    '签到',
+                    textAlign: TextAlign.center,
+                  )
+                ],
+              ),
+              onTap: () {
+                print("1");
+              },
             ),
             flex: 1,
           ),
           new Expanded(
-            child: new Column(
-              children: <Widget>[
-                //头像
-                new Container(
-                  width: 60.0,
-                  height: 60.0,
-                  margin: new EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: new AssetImage('images/wd.png'),
-                      //从Assets加载图片
-                      fit: BoxFit.cover,
+            child: GestureDetector(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    width: 60.0,
+                    height: 60.0,
+                    margin: new EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: new AssetImage('images/kb.png'),
+                        //从Assets加载图片
+                        fit: BoxFit.cover,
+                      ),
+                      shape: BoxShape.circle,
                     ),
-                    shape: BoxShape.circle,
                   ),
-                ),
-                new Text(
-                  '更多',
-                  textAlign: TextAlign.center,
-                )
-              ],
+                  new Text(
+                    '精选好物',
+                    textAlign: TextAlign.center,
+                  )
+                ],
+              ),
+              onTap: () {
+                print("5");
+              },
             ),
             flex: 1,
-          ),
+          )
         ],
       ),
     );
