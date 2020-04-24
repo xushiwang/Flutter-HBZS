@@ -9,7 +9,7 @@ class LoadPage extends StatefulWidget {
 }
 
 class _LoadPageState extends State<LoadPage> {
-  var flag =null;
+  var flag;
   @override
   void initState() { 
     init();

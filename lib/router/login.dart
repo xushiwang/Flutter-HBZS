@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -8,9 +7,6 @@ import 'package:hbzs/res/Browser.dart';
 import 'package:toast/toast.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../main.dart';
-
 class Login extends StatefulWidget {
   Login({Key key}):super(key:key);
   @override

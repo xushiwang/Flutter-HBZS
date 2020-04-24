@@ -42,7 +42,9 @@ class _EchartsState extends State<Echarts> {
         data: dataLine,
         measureFn: (Linesales lines, _) => lines.cs,
         //measureFn: (Linesales lines, _) => lines.sale,
-        id: "Lines",
+        id: "Lines", domainFn: (Linesales datum, int index) {
+          return ;
+        },
       )
     ];
     //是TimeSeriesChart，而不是LineChart,因为x轴是DataTime类

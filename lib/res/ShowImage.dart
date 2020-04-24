@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:hbzs/res/ShowMD.dart';
 
 class ShowImage extends StatefulWidget {
@@ -17,6 +15,7 @@ String txt = "";
 class _ShowImageState extends State<ShowImage> {
   @override
   void initState() {
+    super.initState();
     getHttp();
   }
 

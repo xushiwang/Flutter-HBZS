@@ -50,7 +50,7 @@ class _ClassPageState extends State<ClassPage> {
                   children: <Widget>[
                     TextField(
                       maxLines: null,
-                      autofocus: false,//自动编辑
+                      autofocus: false, //自动编辑
                       textAlign: TextAlign.start,
                       decoration: InputDecoration(
                           filled: true, fillColor: Colors.white),
@@ -218,6 +218,7 @@ class _ClassPageState extends State<ClassPage> {
                           print(index.toString());
                           editkb(index, "kb", list);
                         },
+                        onPressed: () {},
                         colorBrightness: Brightness.light,
                         child: Text(
                           list[index],
@@ -233,6 +234,7 @@ class _ClassPageState extends State<ClassPage> {
                           print(index.toString());
                           editkb(index, "kb", list);
                         },
+                        onPressed: () {},
                         colorBrightness: Brightness.light,
                         child: Text(
                           list[index],
@@ -295,6 +297,7 @@ class _ClassPageState extends State<ClassPage> {
                           print(index.toString());
                           editkb(index, "qlkb", listql);
                         },
+                        onPressed: () {},
                         colorBrightness: Brightness.light,
                         child: Text(
                           listql[index],
@@ -310,6 +313,7 @@ class _ClassPageState extends State<ClassPage> {
                           print(index.toString());
                           editkb(index, "qlkb", listql);
                         },
+                        onPressed: () {},
                         colorBrightness: Brightness.light,
                         child: Text(
                           listql[index],
@@ -331,15 +335,15 @@ class _ClassPageState extends State<ClassPage> {
     Dio dio = new Dio();
     try {
       //Map<String,String> map = {'week':"week"};
-      Response response =
-          await dio.get("https://xxzx.bjtuhbxy.edu.cn/wxApplets/spaces/week",queryParameters: {'week':"week"});
-          print(response.data);
-          print(response.data["interval"]);
+      Response response = await dio.get(
+          "https://xxzx.bjtuhbxy.edu.cn/wxApplets/spaces/week",
+          queryParameters: {'week': "week"});
+      print(response.data);
+      print(response.data["interval"]);
       if (response.statusCode == 200) {
         if (response.data["flag"] != 0) {
           setState(() {
-            _week =
-                "第" + response.data["interval"].toString() + "周";
+            _week = "第" + response.data["interval"].toString() + "周";
           });
         } else {
           setState(() {
@@ -348,7 +352,7 @@ class _ClassPageState extends State<ClassPage> {
         }
       }
     } on DioError catch (e) {
-      print("获取周次信息失败");
+      print("获取周次信息失败"+e.toString());
       setState(() {
         _week = "获取周次信息失败";
       });
@@ -395,7 +399,7 @@ class _ClassPageState extends State<ClassPage> {
     );
   }
 
-  Future<void> setKb(String me,KbData data, String key, List<String> l) async {
+  Future<void> setKb(String me, KbData data, String key, List<String> l) async {
     final prefs = await SharedPreferences.getInstance();
     if (data.kbFlag == 1) {
       print(data.information.xy);
@@ -962,14 +966,15 @@ class _ClassPageState extends State<ClassPage> {
         'numb': prefs.getString("secret")
       };
       FormData formData = FormData.fromMap(map);
-      Response response = await dio
-          .post("https://xxzx.bjtuhbxy.edu.cn/login/main/ios/kb", data: formData);
+      Response response = await dio.post(
+          "https://xxzx.bjtuhbxy.edu.cn/login/main/ios/kb",
+          data: formData);
       if (response.statusCode == 200) {
         print(response.data.toString());
         Map data1 = json.decode(response.data);
         Map<String, dynamic> map = data1;
         KbData data = KbData.fromJson(map);
-        setKb(account0,data, key, l);
+        setKb(account0, data, key, l);
       }
     } on DioError {
       // 请求错误处理
@@ -989,9 +994,6 @@ class _ClassPageState extends State<ClassPage> {
         list = a;
       });
     } else {
-      print("打印缓存" + list.toString());
-      print("打印结束");
-      print(list.toString() + "%%%%%%%%%%%%%%%%%%%%%%%%%%%init后的数据");
       net(account, secret, "kb", list);
     }
   }
@@ -1007,13 +1009,11 @@ class _ClassPageState extends State<ClassPage> {
         listql = b;
       });
     } else {
-      print("打印缓存1" + listql.toString());
-      print("打印结束1");
-      print(listql.toString() + "%%%%%%%%%%%%%%%%%%%%%%%%%%%init1后的数据");
       net(account1, secret1, "qlkb", listql);
     }
   }
 
+  // 保存
   Future<void> savaList(String key, List list2) async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setStringList(key, list2);

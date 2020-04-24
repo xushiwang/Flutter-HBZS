@@ -5,7 +5,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:hbzs/res/Browser.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -152,6 +151,7 @@ class MyDrawer extends StatelessWidget {
       //   _cacheSizeStr = _renderSize(value);  // _cacheSizeStr用来存储大小的值
       // });
       print(_renderSize(value));
+      return _renderSize(value);
   }
   Future<double> _getTotalSizeOfFilesInDir(final FileSystemEntity file) async {
     if (file is File) {
@@ -187,13 +187,10 @@ class MyDrawer extends StatelessWidget {
     return size + unitArr[index];
   }
   void _clearCache() async {
-     final prefs = await SharedPreferences.getInstance();
-     //prefs.clear();
       Directory tempDir = await getTemporaryDirectory();
       //删除缓存目录
       await delDir(tempDir);
       await loadCache();
-    
       print("缓存清理");
   }
   ///递归方式删除目录

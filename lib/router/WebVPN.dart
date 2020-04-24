@@ -5,9 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:hbzs/res/Browser.dart';
 import 'package:toast/toast.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cookie_jar/cookie_jar.dart';
-import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 
 class WebVPN extends StatelessWidget {
@@ -15,9 +13,9 @@ class WebVPN extends StatelessWidget {
   var webvpnToken = "";
   var login = false;
   var cookieJar = CookieJar();
-  var cookie = null;
-  var webvpn_key = null;
-  var url = null;
+  var cookie;
+  var webvpn_key;
+  var url;
   BuildContext cont1;
   final TextEditingController controlleruser = new TextEditingController();
   final TextEditingController controllerpwd = new TextEditingController();

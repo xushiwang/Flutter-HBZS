@@ -17,10 +17,10 @@ class _MePageState extends State<MePage> {
   @override
   void initState() {
     super.initState();
-    this.get_name();
+    this.Get_name();
   }
 
-  get_name() async {
+  Get_name() async {
     final prefs = await SharedPreferences.getInstance();
     var a = prefs.getString("name");
     if (a != null) {
@@ -36,7 +36,7 @@ class _MePageState extends State<MePage> {
       backgroundColor: Colors.white,
       drawer: MyDrawer(),
       appBar: AppBar(
-        iconTheme: IconThemeData(color:Colors.black),
+        iconTheme: IconThemeData(color: Colors.black),
         title: Text(nickname, style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.white,
         centerTitle: true,
@@ -52,7 +52,13 @@ class _MePageState extends State<MePage> {
       ),
       body: new ListView(
         children: <Widget>[
-          Card(),
+          GestureDetector(
+            onTap: () {
+              print("点击了头像->编辑个人信息");
+              Navigator.pushNamed(context, '/editinfo');
+            },
+            child: Card(),
+          ),
           BigDivider(),
           Header(), //头部
           BigDivider(),
@@ -68,7 +74,8 @@ class _MePageState extends State<MePage> {
           ),
           Text(
             "--- 没有了 ---\n",
-            style: TextStyle(color: Colors.grey),
+            style: TextStyle(color: Colors.black,fontSize: 10),
+            
             textAlign: TextAlign.center,
           )
         ],

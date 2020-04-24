@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
 
-class List_Test extends StatefulWidget {
-  List_Test({Key key}) : super(key: key);
+class ListTest extends StatefulWidget {
+  ListTest({Key key}) : super(key: key);
   static final String path = "lib/src/pages/lists/list2.dart";
 
   _ListsState createState() => _ListsState();
 }
 
-class _ListsState extends State<List_Test> {
+class _ListsState extends State<ListTest> {
   final TextStyle dropdownMenuItem =
       TextStyle(color: Colors.black, fontSize: 18);
 

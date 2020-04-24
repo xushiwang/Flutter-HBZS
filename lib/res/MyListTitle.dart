@@ -10,7 +10,7 @@ class MyTitleList extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Column(children: <Widget>[
       ListTile(
-        leading: Icon(Icons.person),
+        leading: Icon(Icons.person,color:Colors.black),
         trailing: Icon(Icons.arrow_forward_ios),
         title: Text(
           '个人中心',
@@ -19,7 +19,7 @@ class MyTitleList extends StatelessWidget {
           ),
         ),
         onTap: () {
-          Navigator.pushNamed(context, '/beautiful');
+          Navigator.pushNamed(context, '/editinfo');
         },
       ),
 
@@ -30,11 +30,10 @@ class MyTitleList extends StatelessWidget {
       ),
       ListTile(
         trailing: Icon(Icons.arrow_forward_ios),
-        leading: Icon(Icons.network_check),
+        leading: Icon(Icons.network_check,color: Colors.black,),
         title: Text(
           'WebVPN',
           style: TextStyle(
-            
             color: Colors.black
           ),
         ),
@@ -57,7 +56,7 @@ class MyTitleList extends StatelessWidget {
       ),
       ListTile(
         trailing: Icon(Icons.arrow_forward_ios),
-        leading: Icon(Icons.thumb_up),
+        leading: Icon(Icons.thumb_up,color:Colors.black),
         title: Text(
           '成绩查询',
           style: TextStyle(
@@ -77,7 +76,7 @@ class MyTitleList extends StatelessWidget {
       ),
       ListTile(
         trailing: Icon(Icons.arrow_forward_ios),
-        leading: Icon(Icons.turned_in),
+        leading: Icon(Icons.turned_in,color:Colors.black),
         title: Text(
           '英语等级',
           style: TextStyle(
@@ -97,7 +96,7 @@ class MyTitleList extends StatelessWidget {
       ),
       ListTile(
         trailing: Icon(Icons.arrow_forward_ios),
-        leading: Icon(Icons.pets),
+        leading: Icon(Icons.pets,color:Colors.black),
         title: Text(
           '考试查询',
           style: TextStyle(
@@ -117,7 +116,7 @@ class MyTitleList extends StatelessWidget {
       ),
       ListTile(
         trailing: Icon(Icons.arrow_forward_ios),
-        leading: Icon(Icons.opacity),
+        leading: Icon(Icons.opacity,color:Colors.black),
         title: Text(
           '补考查询',
           style: TextStyle(
@@ -140,7 +139,7 @@ class MyTitleList extends StatelessWidget {
       ),
       ListTile(
         trailing: Icon(Icons.arrow_forward_ios),
-        leading: Icon(Icons.remove_circle),
+        leading: Icon(Icons.remove_circle,color:Colors.black),
         title: Text(
           '退出登录',
           style: TextStyle(
