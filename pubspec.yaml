@@ -88,6 +88,12 @@ flutter:
    - images/wxpay.jpeg
    - images/loading.jpg
    - images/vip_s.png
+   - images/title_2.png
+   - images/title.png
+   - images/title_0.png
+   - images/title_3.png
+   - images/title_4.png
+   - images/title_5.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

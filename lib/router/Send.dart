@@ -12,7 +12,11 @@ class SendPage extends StatelessWidget {
         backgroundColor: Colors.white,
         centerTitle: true,
       ),
-      body: Text("haha "),
+      body: Column(
+        children: <Widget>[
+          
+        ],
+      )
     );
   }
 }
