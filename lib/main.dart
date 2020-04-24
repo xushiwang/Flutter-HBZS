@@ -2,6 +2,7 @@ import 'package:flutter_jpush/flutter_jpush.dart';
 import 'package:hbzs/res/ShowImage.dart';
 import 'package:hbzs/res/ShowMD.dart';
 import 'package:hbzs/router/Send.dart';
+import 'package:hbzs/router/avator.dart';
 import 'package:hbzs/router/echarts.dart';
 import 'package:hbzs/router/list_cet.dart';
 import 'package:hbzs/router/list_retest.dart';
@@ -13,6 +14,7 @@ import 'package:hbzs/router/editInfo.dart';
 import 'package:hbzs/router/about.dart';
 import 'package:hbzs/router/loadPage.dart';
 import 'package:hbzs/util/nosplash.dart';
+import 'package:hbzs/util/see.dart';
 
 import 'pages/tabs.dart';
 import 'package:flutter/material.dart';
@@ -87,7 +89,9 @@ class MyApp extends StatelessWidget {
         '/echarts': (context) => Echarts(),
         '/webvpn': (context) => WebVPN(),
         '/loading': (context) => LoadPage(),
-        '/tabs': (context) => Tabs()
+        '/tabs': (context) => Tabs(),
+        '/see':(context) => See(),
+        '/avator':(context) => Avator(),
       },
       
       home: LoadPage(),

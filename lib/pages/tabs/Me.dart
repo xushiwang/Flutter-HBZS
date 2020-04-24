@@ -56,7 +56,7 @@ class _MePageState extends State<MePage> {
           GestureDetector(
             onTap: () {
               print("点击了头像->编辑个人信息");
-              Navigator.pushNamed(context, '/editinfo');
+              Navigator.pushNamed(context, '/avator');
             },
             child: Card(),
           ),

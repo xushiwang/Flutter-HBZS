@@ -30,7 +30,7 @@ class _MessagePageState extends State<MessagePage> {
       Map<String, String> map = {'uid':a.account};
       FormData formData = FormData.fromMap(map);
       response = await dio.post(
-          "http://192.168.1.114:8080/admin.php?c=Notify&a=index",
+          "http://192.168.1.9:8080/admin.php?c=Notify&a=index",
           data: formData);
       print(response.data);
       return response.data;
