@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hbzs/common/global.dart';
 import 'package:hbzs/res/MyDrawer.dart';
 import 'package:hbzs/res/customview.dart';
 import 'package:share/share.dart';
 import 'package:hbzs/res/MyListTitle.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_app_badger/flutter_app_badger.dart';
 
 class MePage extends StatefulWidget {
@@ -14,21 +14,9 @@ class MePage extends StatefulWidget {
 }
 
 class _MePageState extends State<MePage> {
-  var nickname = "";
   @override
   void initState() {
     super.initState();
-    this.Get_name();
-  }
-
-  Get_name() async {
-    final prefs = await SharedPreferences.getInstance();
-    var a = prefs.getString("name");
-    if (a != null) {
-      setState(() {
-        nickname = a;
-      });
-    }
   }
 
   @override
@@ -38,7 +26,7 @@ class _MePageState extends State<MePage> {
       drawer: MyDrawer(),
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
-        title: Text(nickname, style: TextStyle(color: Colors.black)),
+        title: Text(Global.nickname, style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.white,
         centerTitle: true,
         actions: <Widget>[
@@ -103,7 +91,7 @@ class Card extends StatelessWidget {
                       borderRadius: BorderRadius.circular(150),
                       image: DecorationImage(
                           image: NetworkImage(
-                              "https://img2.woyaogexing.com/2019/12/28/ebc0f9f2e4bd498283d51d96f878f391!400x400.jpeg"),
+                             Global.avator_img_url),
                           fit: BoxFit.cover)),
                 ),
                 new Column(
@@ -116,7 +104,7 @@ class Card extends StatelessWidget {
                         alignment: Alignment.topLeft,
                         margin: EdgeInsets.only(left: 3.0),
                         child: Text(
-                          '许一生所爱',
+                          Global.nickname,
                           style: TextStyle(
                               // color: Color(0xFF888888),//浅灰
                               color: Colors.black,

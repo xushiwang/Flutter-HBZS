@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:hbzs/common/global.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
 
@@ -221,10 +222,8 @@ class _ListsState extends State<ListTest> {
   }
 
   Future<void> _get_cj() async {
+     if(Global.account!="fangke"){
     final prefs = await SharedPreferences.getInstance();
-
-    
-    //print(params);
     Dio dio = new Dio();
     try {Map<String, String> map = {
         'name': "ks",
@@ -251,7 +250,10 @@ class _ListsState extends State<ListTest> {
       print("网络" + e.toString());
       Toast.show("网络错误,请检查网络连接", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-    }
+    }}else{
+       Toast.show("访客身份", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+     }
   }
 
   update() {

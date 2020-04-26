@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:hbzs/common/global.dart';
 import 'package:hbzs/res/Browser.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toast/toast.dart';
 
 class MyTitleList extends StatelessWidget {
   const MyTitleList({Key key}) : super(key: key);
@@ -38,7 +40,7 @@ class MyTitleList extends StatelessWidget {
           ),
         ),
         onTap: () {
-          // Navigator.pushNamed(context, '/webvpn');
+          if(Global.account!="fangke"){
           Navigator.of(context)
                       .push(new MaterialPageRoute(builder: (_) {
                     return Browser(
@@ -46,6 +48,10 @@ class MyTitleList extends StatelessWidget {
                       title: "WebVPN",
                     );
                   }));
+          }else{
+            Toast.show("请先登录", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+          }
         },
       ),
 

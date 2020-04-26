@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:hbzs/common/global.dart';
 import 'package:hbzs/model/kb_data.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,21 +17,20 @@ class ClassPage extends StatefulWidget {
 
 class _ClassPageState extends State<ClassPage> {
   final TextEditingController controller = new TextEditingController();
-  var _week = "";
+  var _week = Global.week;
   static List<String> list = List.generate(35, (i) {
     return "";
   });
   static List<String> listql = List.generate(35, (i) {
     return "";
   });
-  String account1 = "16851051";
-  String secret1 = "16851051";
-  String account = "16851144";
-  String secret = "16851144";
+  String account1 = Global.account_2;
+  String secret1 = Global.account_2;
+  String account = Global.account;
+  String secret = Global.account;
   @override
   void initState() {
     super.initState();
-    this._getData();
     this.init();
     this.initList1();
   }
@@ -328,35 +328,6 @@ class _ClassPageState extends State<ClassPage> {
         ),
       ),
     );
-  }
-
-  _getData() async {
-    print("获取周次信息");
-    Dio dio = new Dio();
-    try {
-      //Map<String,String> map = {'week':"week"};
-      Response response = await dio.get(
-          "https://xxzx.bjtuhbxy.edu.cn/wxApplets/spaces/week",
-          queryParameters: {'week': "week"});
-      print(response.data);
-      print(response.data["interval"]);
-      if (response.statusCode == 200) {
-        if (response.data["flag"] != 0) {
-          setState(() {
-            _week = "第" + response.data["interval"].toString() + "周";
-          });
-        } else {
-          setState(() {
-            _week = "当前为非教学周";
-          });
-        }
-      }
-    } on DioError catch (e) {
-      print("获取周次信息失败"+e.toString());
-      setState(() {
-        _week = "获取周次信息失败";
-      });
-    }
   }
 
   Future<bool> showDeleteConfirmDialog1() {
@@ -959,36 +930,39 @@ class _ClassPageState extends State<ClassPage> {
     final prefs = await SharedPreferences.getInstance();
     print("获取课表信息");
     Dio dio = new Dio();
-    try {
-      Map<String, String> map = {
-        'name': "kb",
-        'account': prefs.getString("account"),
-        'numb': prefs.getString("secret")
-      };
-      FormData formData = FormData.fromMap(map);
-      Response response = await dio.post(
-          "https://xxzx.bjtuhbxy.edu.cn/login/main/ios/kb",
-          data: formData);
-      if (response.statusCode == 200) {
-        print(response.data.toString());
-        Map data1 = json.decode(response.data);
-        Map<String, dynamic> map = data1;
-        KbData data = KbData.fromJson(map);
-        setKb(account0, data, key, l);
+    if (Global.account != "fangke") {
+      try {
+        Map<String, String> map = {
+          'name': "kb",
+          'account': prefs.getString("account"),
+          'numb': prefs.getString("secret")
+        };
+        FormData formData = FormData.fromMap(map);
+        Response response = await dio.post(
+            Global.kb_url,
+            data: formData);
+        if (response.statusCode == 200) {
+          print(response.data.toString());
+          Map data1 = json.decode(response.data);
+          Map<String, dynamic> map = data1;
+          KbData data = KbData.fromJson(map);
+          setKb(account0, data, key, l);
+        }
+      } on DioError {
+        // 请求错误处理
+        Toast.show("网络错误,请检查网络连接", context,
+            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       }
-    } on DioError {
-      // 请求错误处理
-      Toast.show("网络错误,请检查网络连接", context,
+    } else {
+      Toast.show("访客身份", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
     }
   }
 
   Future<void> init() async {
     final prefs = await SharedPreferences.getInstance();
-    // account = prefs.getString("account");
-    // secret = prefs.getString("secret");
-
     var a = prefs.getStringList("kb");
+    print(_week);
     if (a != null) {
       setState(() {
         list = a;

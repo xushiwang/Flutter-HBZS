@@ -3,16 +3,19 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hbzs/common/global.dart';
 import 'package:hbzs/res/Browser.dart';
 import 'package:toast/toast.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 class Login extends StatefulWidget {
-  Login({Key key}):super(key:key);
+  Login({Key key}) : super(key: key);
   @override
   _Login createState() => _Login();
 }
-class _Login extends State<Login>{
+
+class _Login extends State<Login> {
   final TextEditingController controlleruser = new TextEditingController();
   final TextEditingController controllerpwd = new TextEditingController();
 
@@ -43,7 +46,7 @@ class _Login extends State<Login>{
                     Navigator.of(context)
                         .push(new MaterialPageRoute(builder: (_) {
                       return new Browser(
-                        url: "https://www.hbxy.xyz/jwxt/tiaoKuan.html",
+                        url: Global.protrol_url,
                         title: "服务协议",
                       );
                     }));
@@ -136,12 +139,17 @@ class _Login extends State<Login>{
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      Container(
-                          padding: EdgeInsets.only(right: 20.0),
-                          child: Text(
-                            "游客登录",
-                            style: TextStyle(color: Colors.black45),
-                          ))
+                      GestureDetector(
+                          onTap: () {
+                            Global.account = "fangke";
+                            Navigator.of(context).pushReplacementNamed('/tabs');
+                          },
+                          child: Container(
+                              padding: EdgeInsets.only(right: 20.0),
+                              child: Text(
+                                "游客登录",
+                                style: TextStyle(color: Colors.black45),
+                              )))
                     ],
                   ),
                   SizedBox(
@@ -193,13 +201,14 @@ class _Login extends State<Login>{
                       if (response.statusCode == 200) {
                         if (json.decode(response.data)["login_flag"] == 1) {
                           //登录成功
+                          Global.nickname = json.decode(response.data)["name"];
+                          Global.account =
+                              json.decode(response.data)["account"];
                           final prefs = await SharedPreferences.getInstance();
-                          prefs.setString(
-                              'account', json.decode(response.data)["account"]);
+                          prefs.setString('account', Global.account);
                           prefs.setString(
                               'secret', json.decode(response.data)["secret"]);
-                          prefs.setString(
-                              'name', json.decode(response.data)["name"]);
+                          prefs.setString('name', Global.nickname);
                           print(prefs.getString("name"));
                           Navigator.of(context).pushReplacementNamed('/tabs');
                         } else {
@@ -209,7 +218,8 @@ class _Login extends State<Login>{
                               gravity: Toast.BOTTOM);
                         }
                       } else {
-                        print("login.dart:216:" + response.statusCode.toString());
+                        print(
+                            "login.dart:216:" + response.statusCode.toString());
                       }
                     } on DioError catch (e) {
                       // 请求错误处理

@@ -9,26 +9,6 @@ class See extends StatefulWidget {
 }
 String txt="";  
 class _SeeState extends State<See> {
-  
-  // @override
-  // void initState() {
-  //   getHttp();
-  // }
-  // getHttp() async {
-  //   try {
-  //     Response response;
-  //     Dio dio = new Dio();
-  //     response =
-  //         await dio.get("https://xushiwang.github.io/update_logs.txt");
-  //     print(response.data.toString());
-  //     setState(() {
-  //       txt=response.data.toString();
-  //     });
-  //     return response.data;
-  //   } catch (e) {
-  //     return print(e);
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {

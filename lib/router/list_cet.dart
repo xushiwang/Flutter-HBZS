@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:hbzs/common/global.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
 
@@ -225,6 +226,7 @@ class _ListsState extends State<ListCet> {
   }
 
   Future<void> _get_cj() async {
+     if(Global.account!="fangke"){
     final prefs = await SharedPreferences.getInstance();
     var data = prefs.getStringList("cj");
     if (data != null) {
@@ -239,7 +241,7 @@ class _ListsState extends State<ListCet> {
       };
       FormData formData = FormData.fromMap(map);
       Response response = await dio
-          .post("https://xxzx.bjtuhbxy.edu.cn/login/main/ios/yy", data: formData);
+          .post(Global.cet_url, data: formData);
       if (response.statusCode == 200) {
         if (json.decode(response.data)["yy_flag"] == 1) {
           setState(() {
@@ -254,6 +256,10 @@ class _ListsState extends State<ListCet> {
       Toast.show("网络错误,请检查网络连接", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
     }
+     }else{
+       Toast.show("访客身份", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+     }
   }
 
   update() {

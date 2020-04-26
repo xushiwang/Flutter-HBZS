@@ -242,13 +242,6 @@ class WebVPN extends StatelessWidget {
     dio1.interceptors.add(CookieManager(CookieJar()));
     try {
       Map<String, dynamic> headers = new Map();
-      // headers['Cookie'] = cookieJar
-      //     .loadForRequest(Uri.parse("https://vpn.bjtuhbxy.cn/api/signin"))[0]
-      //     .toString()
-      //     .split(";")[0];
-      // print(cookie);
-      // print(cookieJar.loadForRequest(
-      //      Uri.parse("https://vpn.bjtuhbxy.cn/api/signin"))[0].toString().split(";")[0]);
       headers['Cookie'] = cookie;
       headers['Host'] = "vpn.bjtuhbxy.cn";
       Options options = new Options(headers: headers);

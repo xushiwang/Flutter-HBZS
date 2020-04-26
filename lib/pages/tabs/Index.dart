@@ -2,9 +2,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:hbzs/common/global.dart';
 import 'package:hbzs/res/Browser.dart';
 import 'package:hbzs/res/MyDrawer.dart';
 import 'package:hbzs/res/customview.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class IndexPage extends StatefulWidget {
   IndexPage({Key key}) : super(key: key);
@@ -28,7 +30,9 @@ class _IndexPageState extends State<IndexPage> {
     try {
       Response response;
       Dio dio = new Dio();
-      response = await dio.get("https://xxzx.bjtuhbxy.edu.cn/wxApplets/spaces/home",queryParameters: {"news":"news"});
+      response = await dio.get(
+          Global.news_url,
+          queryParameters: {"news": "news"});
       print(response.data);
       return response.data["main_url_list"];
     } catch (e) {
@@ -37,55 +41,58 @@ class _IndexPageState extends State<IndexPage> {
   }
 
   Widget buildGrid() {
-    List<Widget> tiles = []; //先建一个数组用于存放循环生成的widget 
+    List<Widget> tiles = []; //先建一个数组用于存放循环生成的widget
     for (var item in formList) {
       tiles.add(new Container(
           margin: new EdgeInsets.all(10.0),
           child: GestureDetector(
-            onTap: (){
-              Navigator.of(context)
-                      .push(new MaterialPageRoute(builder: (_) {
-                    return Browser(
-                      url: item["href"],
-                      title: "校园动态",
-                    );
-                  }));
-            },
-            child:Column(children: <Widget>[
-            Row(
-              children: <Widget>[
-                new Icon(
-                  Icons.ac_unit,
-                  color: Colors.black26,
-                  size: 17.0,
+              onTap: () {
+                Navigator.of(context).push(new MaterialPageRoute(builder: (_) {
+                  return Browser(
+                    url: item["href"],
+                    title: "校园动态",
+                  );
+                }));
+              },
+              child: Column(children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    new Icon(
+                      Icons.ac_unit,
+                      color: Colors.black26,
+                      size: 17.0,
+                    ),
+                    new Container(
+                      margin: new EdgeInsets.only(left: 5.0),
+                      child: new Text(
+                        '校园动态',
+                        style: new TextStyle(color: Color(0xFF888888)),
+                      ),
+                    )
+                  ],
                 ),
-                new Container(
-                  margin: new EdgeInsets.only(left: 5.0),
-                  child: new Text(
-                    '校园动态',
-                    style: new TextStyle(color: Color(0xFF888888)),
-                  ),
-                )
-              ],
-            ),
-            new Divider(
-              color: Color(0xFF888888),
-            ),
-            Text(item['title']),
-            new Margin(indent: 6.0),
-            Image.network(
-              item['news_img'],
-              fit: BoxFit.cover,
-            ),
-            new Margin(indent: 6.0),
-            new Text(
-              item['content'],
-              style: new TextStyle(color: Color(0xFF888888)),
-            ),
-            new Divider(
-              color: Color(0xFF888888),
-            ),
-          ]))));
+                new Divider(
+                  color: Color(0xFF888888),
+                ),
+                Text(item['title']),
+                new Margin(indent: 6.0),
+                // Image.network(
+                //   item['news_img'],
+                //   fit: BoxFit.cover,
+                // ),
+                FadeInImage.memoryNetwork(
+                  placeholder: kTransparentImage,
+                  image: item['news_img'],
+                ),
+                new Margin(indent: 6.0),
+                new Text(
+                  item['content'],
+                  style: new TextStyle(color: Color(0xFF888888)),
+                ),
+                new Divider(
+                  color: Color(0xFF888888),
+                ),
+              ]))));
     }
     return Column(children: tiles);
   }

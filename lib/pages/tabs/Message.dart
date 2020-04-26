@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:hbzs/common/global.dart';
 import 'package:hbzs/model/User.dart';
 import 'package:hbzs/res/Browser.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,13 +25,11 @@ class _MessagePageState extends State<MessagePage> {
 
   Future getHttp() async {
     try {
-      User a = new User('16851144', "sd");
       Response response;
       Dio dio = new Dio();
-      Map<String, String> map = {'uid':a.account};
+      Map<String, String> map = {'uid':Global.account};
       FormData formData = FormData.fromMap(map);
-      response = await dio.post(
-          "http://192.168.1.9:8080/admin.php?c=Notify&a=index",
+      response = await dio.post(Global.notify_url,
           data: formData);
       print(response.data);
       return response.data;
@@ -64,7 +63,7 @@ class _MessagePageState extends State<MessagePage> {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            //Message(),
+            Message(),
             buildGrid(),
           ],
         )));
