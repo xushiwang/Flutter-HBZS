@@ -373,6 +373,7 @@ class _ClassPageState extends State<ClassPage> {
   Future<void> setKb(String me, KbData data, String key, List<String> l) async {
     final prefs = await SharedPreferences.getInstance();
     if (data.kbFlag == 1) {
+
       print(data.information.xy);
       print(data.information.zy);
       print(data.information.bj);
@@ -380,6 +381,11 @@ class _ClassPageState extends State<ClassPage> {
       print(data.information.xh);
       print(data.information.xn);
       print(data.information.xq);
+      Global.xueyuan = data.information.xy;
+      Global.zhuanye = data.information.zy;
+      Global.banji = data.information.bj;
+      Global.xuenian = data.information.xn;
+      Global.xueqi = data.information.xq;
 
       l = List.generate(35, (i) {
         return "";

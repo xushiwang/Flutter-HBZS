@@ -4,6 +4,11 @@ class Global {
   static String account_2;//Ta的学号
   static String secret; 
   static String nickname;//姓名
+  static String xueyuan;
+  static String zhuanye;
+  static String banji;
+  static String xuenian;
+  static String xueqi;
   static String week;//周次
   static String notify_url="http://192.168.1.107:8080/admin.php?c=Notify&a=index";
   static String kb_url = "https://xxzx.bjtuhbxy.edu.cn/login/main/ios/kb";

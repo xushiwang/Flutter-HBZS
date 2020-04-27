@@ -139,40 +139,48 @@ class _MessagePageState extends State<MessagePage> {
 class Message extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Padding(
-      padding: new EdgeInsets.all(18.0),
-      child: new Column(
-        children: <Widget>[
-          new Container(
-            child: new Row(
-              children: <Widget>[
-                new Icon(
-                  Icons.message,
-                  color: Colors.black26,
-                  size: 17.0,
-                ),
-                new Container(
-                  margin: new EdgeInsets.only(left: 5.0),
-                  child: new Text(
-                    '消息',
-                    style: new TextStyle(color: Color(0xFF888888)),
+    return 
+      
+      Padding(
+        padding: new EdgeInsets.all(18.1550),
+        child: GestureDetector(
+          onTap: (){
+            print("object");
+          },
+          child:Column(
+          children: <Widget>[
+            new Container(
+              child: new Row(
+                children: <Widget>[
+                  new Icon(
+                    Icons.inbox,
+                    color: Colors.black26,
+                    size: 17.0,
                   ),
-                )
-              ],
+                  new Container(
+                    margin: new EdgeInsets.only(left: 5.0),
+                    child: new Text(
+                      '备忘录',
+                      style: new TextStyle(color: Color(0xFF888888)),
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-          new Divider(
-            color: Color(0xFF888888),
-          ),
-          new Container(
-            margin: new EdgeInsets.all(10.0),
-            child: new Text("这里是消息"),
-          ),
-          new Divider(
-            color: Color(0xFF888888),
-          )
-        ],
-      ),
+            new Divider(
+              color: Color(0xFF888888),
+            ),
+            new Container(
+              margin: new EdgeInsets.all(10.0),
+              child: new Text(""),
+            ),
+            new Divider(
+              color: Color(0xFF888888),
+            )
+          ],
+        ),
+        )
+      
     );
   }
 }
