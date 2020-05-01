@@ -27,6 +27,7 @@ class _LoadPageState extends State<LoadPage> {
   init() async {
     final prefs = await SharedPreferences.getInstance();
     flag = prefs.getString("account");
+    Global.account=flag;
   }
 
   getweek() async {

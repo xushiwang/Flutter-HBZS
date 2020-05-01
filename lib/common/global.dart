@@ -10,7 +10,7 @@ class Global {
   static String xuenian;
   static String xueqi;
   static String week;//周次
-  static String notify_url="http://192.168.1.107:8080/admin.php?c=Notify&a=index";
+  static String notify_url="http://192.168.1.9:8080/admin.php?c=Notify&a=index";
   static String kb_url = "https://xxzx.bjtuhbxy.edu.cn/login/main/ios/kb";
   static String cet_url = "https://xxzx.bjtuhbxy.edu.cn/login/main/ios/yy";
   static String cj_url = "https://xxzx.bjtuhbxy.edu.cn/login/main/ios/cj";
