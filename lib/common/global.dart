@@ -3,7 +3,7 @@ class Global {
   static String account;//我的学号
   static String account_2;//Ta的学号
   static String secret; 
-  static String nickname="";//姓名
+  static String nickname;//姓名
   static String xueyuan;
   static String zhuanye;
   static String banji;
@@ -19,4 +19,5 @@ class Global {
   static String avator_img_url =  "https://img2.woyaogexing.com/2019/12/28/ebc0f9f2e4bd498283d51d96f878f391!400x400.jpeg";
   static String app_url = "https://www.hbxy.xyz/";
   static String protrol_url = "https://www.hbxy.xyz/jwxt/tiaoKuan.html";
+  static String calendar_url;
 }

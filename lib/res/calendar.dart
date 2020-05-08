@@ -1,5 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_drag_scale/core/drag_scale_widget.dart';
+import 'package:hbzs/common/global.dart';
 
 class Calendar extends StatefulWidget {
   Calendar({Key key}) : super(key: key);
@@ -7,8 +9,9 @@ class Calendar extends StatefulWidget {
   @override
   _CalendarState createState() => _CalendarState();
 }
-
+String a;
 class _CalendarState extends State<Calendar> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,13 +24,14 @@ class _CalendarState extends State<Calendar> {
           ),
           centerTitle: true,
         ),
-        body: Center(
+        body: 
+        Center(
           child: DragScaleContainer(
             doubleTapStillScale: true,
-            child: new Image(
-              image: new NetworkImage(
-                  'http://www.bjtuhbxy.edu.cn/__local/3/E6/51/361B3910247673860D31211B8B1_CE375123_D1AD0.jpg'),
-            ),
+            child:
+            new Image(
+                    image: new NetworkImage("http://www.bjtuhbxy.edu.cn/__local/3/E6/51/361B3910247673860D31211B8B1_CE375123_D1AD0.jpg")
+                )
           ),
         ));
   }

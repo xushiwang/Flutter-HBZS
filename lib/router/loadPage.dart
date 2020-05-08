@@ -18,7 +18,7 @@ class _LoadPageState extends State<LoadPage> {
     getweek();
     super.initState();
     Future.delayed(Duration(seconds: 3), () {
-      (flag != null && flag != "")
+      (Global.account != null && Global.account != "")
           ? Navigator.of(context).pushReplacementNamed('/tabs')
           : Navigator.of(context).pushReplacementNamed('/login');
     });
@@ -27,7 +27,9 @@ class _LoadPageState extends State<LoadPage> {
   init() async {
     final prefs = await SharedPreferences.getInstance();
     flag = prefs.getString("account");
+    Global.nickname=prefs.get("name");
     Global.account=flag;
+    print(Global.account);
   }
 
   getweek() async {
