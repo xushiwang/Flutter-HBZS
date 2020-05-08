@@ -1,6 +1,7 @@
 import 'package:flutter_jpush/flutter_jpush.dart';
 import 'package:hbzs/res/ShowImage.dart';
 import 'package:hbzs/res/ShowMD.dart';
+import 'package:hbzs/res/calendar.dart';
 import 'package:hbzs/router/Send.dart';
 import 'package:hbzs/router/avator.dart';
 import 'package:hbzs/router/echarts.dart';
@@ -92,6 +93,7 @@ class MyApp extends StatelessWidget {
         '/tabs': (context) => Tabs(),
         '/see':(context) => See(),
         '/avator':(context) => Avator(),
+        '/calendar':(context) => Calendar(),
       },
       
       home: LoadPage(),

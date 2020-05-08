@@ -135,6 +135,26 @@ class MyTitleList extends StatelessWidget {
         },
       ),
 
+       //分割线
+      Container(
+        child: Divider(height: 2,color: Colors.grey),
+        padding: EdgeInsets.fromLTRB(70, 0, 0, 0),
+      ),
+      ListTile(
+        trailing: Icon(Icons.arrow_forward_ios),
+        leading: Icon(Icons.calendar_today,color:Colors.black),
+        title: Text(
+          '校历查询',
+          style: TextStyle(
+            
+            color: Colors.black
+          ),
+        ),
+        onTap: () {
+          Navigator.pushNamed(context, '/calendar');
+        },
+      ),
+
 
      
 

@@ -3,7 +3,7 @@ class Global {
   static String account;//我的学号
   static String account_2;//Ta的学号
   static String secret; 
-  static String nickname;//姓名
+  static String nickname="";//姓名
   static String xueyuan;
   static String zhuanye;
   static String banji;
