@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="hbzs"
+        android:label="海滨助手"
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -7,12 +7,13 @@ import 'package:hbzs/res/MyListTitle.dart';
 import 'package:flutter_app_badger/flutter_app_badger.dart';
 
 class MePage extends StatefulWidget {
-  MePage({Key key}) : super(key: key);
-
+  final String avator_url;
+  MePage({Key key,this.avator_url}) : super(key: key);
+  
   @override
   _MePageState createState() => _MePageState();
 }
-
+ String _avator=Global.avator_img_url;
 class _MePageState extends State<MePage> {
   @override
   void initState() {
@@ -73,8 +74,9 @@ class _MePageState extends State<MePage> {
 }
 
 class Card extends StatelessWidget {
-  const Card({Key key}) : super(key: key);
 
+  const Card({Key key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return Padding(

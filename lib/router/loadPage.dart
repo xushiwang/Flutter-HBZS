@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:hbzs/common/global.dart';
+import 'package:hbzs/res/assets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoadPage extends StatefulWidget {
@@ -12,6 +13,7 @@ class LoadPage extends StatefulWidget {
 
 class _LoadPageState extends State<LoadPage> {
   var flag;
+  String avator_img;
   @override
   void initState() {
     init();
@@ -27,8 +29,10 @@ class _LoadPageState extends State<LoadPage> {
   init() async {
     final prefs = await SharedPreferences.getInstance();
     flag = prefs.getString("account");
+    avator_img = prefs.getString("avator_img");
     Global.nickname=prefs.get("name");
     Global.account=flag;
+    flag!=null?Global.avator_img_url =flag:Global.avator_img_url="" ;
     print(Global.account);
   }
 

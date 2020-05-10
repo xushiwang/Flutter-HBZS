@@ -14,6 +14,7 @@ import 'package:hbzs/router/WebVPN.dart';
 import 'package:hbzs/router/editInfo.dart';
 import 'package:hbzs/router/about.dart';
 import 'package:hbzs/router/loadPage.dart';
+import 'package:hbzs/router/myinfo.dart';
 import 'package:hbzs/util/nosplash.dart';
 import 'package:hbzs/util/see.dart';
 
@@ -77,7 +78,7 @@ class MyApp extends StatelessWidget {
         '/send': (context) => SendPage(),
         '/beautiful': (context) => IntroTwoPage(),
         '/login': (context) => Login(),
-        '/editinfo': (context) => EditInfo(),
+        '/editinfo': (context) => ProfileFivePage(),
         '/lists': (context) => Lists(),
         '/cet': (context) => ListCet(),
         '/test': (context) => ListTest(),

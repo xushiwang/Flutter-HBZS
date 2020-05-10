@@ -16,7 +16,7 @@ class Global {
   static String cj_url = "https://xxzx.bjtuhbxy.edu.cn/login/main/ios/cj";
   static String bk_url = "https://xxzx.bjtuhbxy.edu.cn/login/main/ios/bk";
   static String news_url = "https://xxzx.bjtuhbxy.edu.cn/wxApplets/spaces/home";
-  static String avator_img_url =  "https://img2.woyaogexing.com/2019/12/28/ebc0f9f2e4bd498283d51d96f878f391!400x400.jpeg";
+  static String avator_img_url =  "";
   static String app_url = "https://www.hbxy.xyz/";
   static String protrol_url = "https://www.hbxy.xyz/jwxt/tiaoKuan.html";
   static String calendar_url;
