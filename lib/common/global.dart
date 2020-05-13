@@ -1,23 +1,26 @@
-
 class Global {
-  static String account;//我的学号
-  static String account_2;//Ta的学号
-  static String secret; 
-  static String nickname;//姓名
+  static String account; //我的学号
+  static String account_2; //Ta的学号
+  static String secret;
+  static String nickname; //姓名
   static String xueyuan;
   static String zhuanye;
   static String banji;
   static String xuenian;
   static String xueqi;
-  static String week;//周次
-  static String notify_url="http://192.168.1.9:8080/admin.php?c=Notify&a=index";
+  static String week; //周次
+  static String host = "192.168.1.9";
+  static String register_info = "http://" + host + ":8080/admin.php";
+  static String notify_url =
+      "http://192.168.1.9:8080/admin.php?c=Notify&a=index";
   static String kb_url = "https://xxzx.bjtuhbxy.edu.cn/login/main/ios/kb";
   static String cet_url = "https://xxzx.bjtuhbxy.edu.cn/login/main/ios/yy";
   static String cj_url = "https://xxzx.bjtuhbxy.edu.cn/login/main/ios/cj";
   static String bk_url = "https://xxzx.bjtuhbxy.edu.cn/login/main/ios/bk";
   static String news_url = "https://xxzx.bjtuhbxy.edu.cn/wxApplets/spaces/home";
-  static String avator_img_url =  "";
+  static String avator_img_url = "";
   static String app_url = "https://www.hbxy.xyz/";
   static String protrol_url = "https://www.hbxy.xyz/jwxt/tiaoKuan.html";
   static String calendar_url;
+  static String get_week = "https://xxzx.bjtuhbxy.edu.cn/wxApplets/spaces/week";
 }

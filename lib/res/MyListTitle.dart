@@ -173,9 +173,31 @@ class MyTitleList extends StatelessWidget {
           ),
         ),
         onTap: () {
-          exit();
+          showDialog<String>(
+            context: context,
+            builder: (BuildContext context)=>AlertDialog(
+              title: const Text("温馨提示",style: TextStyle(
+                                color: Color.fromARGB(255, 207, 169, 114))),
+              content: Text("确定退出登录？"),
+              actions: <Widget>[
+                FlatButton(
+                  child: Text("取消", style: TextStyle(
+                                color: Color.fromARGB(255, 207, 169, 114)),),
+                  onPressed: ()=>Navigator.pop(context,"Cancel"),),
+              FlatButton(
+                  child: Text("确定", style: TextStyle(
+                                color: Color.fromARGB(255, 207, 169, 114)),),
+                  onPressed: ()=>Navigator.pop(context,"OK"),)],)).then<String>((returnVal){
+                    if(returnVal!=null){
+                      if(returnVal=='OK'){
+                        exit();
+                        Navigator.of(context).pushReplacementNamed('/login');
+                      }
+                    }
+
+                  });
+          //exit();
           print('执行退出帐号程序 清除系统帐号 密码缓存');
-          Navigator.of(context).pushReplacementNamed('/login');
         },
       ),
       
@@ -186,5 +208,8 @@ class MyTitleList extends StatelessWidget {
     prefs.clear();
     prefs.remove("account");
     prefs.remove("secret");
+    prefs.remove("avator_img");
+    prefs.remove("kb");
+    prefs.remove("qlkb");
   }
 }

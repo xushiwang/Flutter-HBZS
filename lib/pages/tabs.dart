@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:hbzs/common/global.dart';
+import 'package:toast/toast.dart';
 import 'tabs/Class.dart';
 import 'tabs/Index.dart';
 import 'tabs/Me.dart';
@@ -11,13 +13,45 @@ class Tabs extends StatefulWidget {
 }
 
 class __TabsState extends State<Tabs> {
-  
+  int flag = 0;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    register_user();
+  }
  @override
   void dispose() {
     indexcontroller.close();
     super.dispose();
   }
 
+  Future register_user() async {
+    if (flag == 0) {
+      Dio dio = new Dio();
+      Map<String, String> map = {
+        'uid': Global.account,
+        'nickname': Global.nickname,
+        'college_name': Global.xueyuan,
+        'major_name': Global.zhuanye,
+        'class': Global.banji,
+      };
+      print(map);
+      FormData formData = FormData.fromMap(map);
+      Response response = await dio.post(
+        Global.register_info,
+        data: formData,
+      );
+      if (response.statusCode == 200) {
+        print(response.toString());
+        if (response.data != "fail") {
+          //Toast.show("成功", context);
+          //ssNavigator.pop(context);
+          flag = 1;
+        }
+      }
+    }
+  }
   PageController pageController = PageController(initialPage: 0);
   StreamController<int> indexcontroller = StreamController<int>.broadcast();
   int index = 0;

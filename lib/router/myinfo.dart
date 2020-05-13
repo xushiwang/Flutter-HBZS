@@ -63,7 +63,7 @@ class ProfileFivePage extends StatelessWidget {
                 ),
                 SizedBox(height: 10.0),
                 Text(
-                  "Sasha - 22",
+                "ID:"+Global.account,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
                 ),
                 Row(
@@ -163,10 +163,10 @@ class ProfileFivePage extends StatelessWidget {
             backgroundColor: Colors.transparent,
             elevation: 0,
             actions: <Widget>[
-              IconButton(
-                icon: Icon(Icons.notifications),
-                onPressed: () {},
-              ),
+              // IconButton(
+              //   icon: Icon(Icons.notifications),
+              //   onPressed: () {},
+              // ),
               IconButton(
                 icon: Icon(Icons.menu),
                 onPressed: () {},
