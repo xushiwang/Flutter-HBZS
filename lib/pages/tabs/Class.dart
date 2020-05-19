@@ -37,49 +37,49 @@ class _ClassPageState extends State<ClassPage> {
 
   @override
   Widget build(BuildContext context) {
-    void editkb(int index, String key, List<String> listtemp) {
-      controller.text = listtemp[index];
-      showCupertinoDialog(
-          context: context,
-          builder: (context) {
-            return CupertinoAlertDialog(
-              title: Text('键入以编辑课表'),
-              content: Card(
-                elevation: 5.0,
-                child: Column(
-                  children: <Widget>[
-                    TextField(
-                      maxLines: null,
-                      autofocus: false, //自动编辑
-                      textAlign: TextAlign.start,
-                      decoration: InputDecoration(
-                          filled: true, fillColor: Colors.white),
-                      controller: controller,
-                    ),
-                  ],
-                ),
+  void editkb(int index, String key, List<String> listtemp) {
+    controller.text = listtemp[index];
+    showCupertinoDialog(
+        context: context,
+        builder: (context) {
+          return CupertinoAlertDialog(
+            title: Text('键入以编辑课表'),
+            content: Card(
+              elevation: 5.0,
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    maxLines: null,
+                    autofocus: false, //自动编辑
+                    textAlign: TextAlign.start,
+                    decoration: InputDecoration(
+                        filled: true, fillColor: Colors.white),
+                    controller: controller,
+                  ),
+                ],
               ),
-              actions: <Widget>[
-                CupertinoDialogAction(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text('取消'),
-                ),
-                CupertinoDialogAction(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    setState(() {
-                      listtemp[index] = controller.text;
-                    });
-                    savaList(key, listtemp);
-                  },
-                  child: Text('确定'),
-                ),
-              ],
-            );
-          });
-    }
+            ),
+            actions: <Widget>[
+              CupertinoDialogAction(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('取消'),
+              ),
+              CupertinoDialogAction(
+                onPressed: () {
+                  Navigator.pop(context);
+                  setState(() {
+                    listtemp[index] = controller.text;
+                  });
+                  savaList(key, listtemp);
+                },
+                child: Text('确定'),
+              ),
+            ],
+          );
+        });
+  }
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,

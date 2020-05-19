@@ -1,4 +1,6 @@
 class Global {
+  static String host = "192.168.1.9";
+  static String port = "8080";
   static String account; //我的学号
   static String account_2; //Ta的学号
   static String secret;
@@ -9,10 +11,13 @@ class Global {
   static String xuenian;
   static String xueqi;
   static String week; //周次
-  static String host = "192.168.1.9";
-  static String register_info = "http://" + host + ":8080/admin.php";
+  static String dongtai = "http://"+host+":"+port+"/admin.php?c=News&a=index";
+  static String send_message =
+      "http://" + host + ":"+port+"/admin.php?c=News&a=send";
+  
+  static String register_info = "http://" + host + ":"+port+"/admin.php";
   static String notify_url =
-      "http://192.168.1.9:8080/admin.php?c=Notify&a=index";
+      "http://192.168.1.9:"+port+"/admin.php?c=Notify&a=index";
   static String kb_url = "https://xxzx.bjtuhbxy.edu.cn/login/main/ios/kb";
   static String cet_url = "https://xxzx.bjtuhbxy.edu.cn/login/main/ios/yy";
   static String cj_url = "https://xxzx.bjtuhbxy.edu.cn/login/main/ios/cj";

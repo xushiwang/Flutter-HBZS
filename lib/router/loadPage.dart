@@ -45,7 +45,7 @@ class _LoadPageState extends State<LoadPage> {
     avator_img != null
         ? Global.avator_img_url = avator_img
         : Global.avator_img_url = "";
-    print("缓存用户学号：" + Global.account);
+    print("缓存用户学号："+ Global.account);
   }
 
   Future<void> net() async {

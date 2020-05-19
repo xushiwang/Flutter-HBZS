@@ -260,6 +260,13 @@ packages:
       url: "https://github.com/LiuC520/flutter_drag_scale.git"
     source: git
     version: "0.0.1"
+  flutter_easyrefresh:
+    dependency: "direct main"
+    description:
+      name: flutter_easyrefresh
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.1.1"
   flutter_image_compress:
     dependency: "direct main"
     description:

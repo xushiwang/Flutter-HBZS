@@ -15,6 +15,7 @@ import 'package:hbzs/router/editInfo.dart';
 import 'package:hbzs/router/about.dart';
 import 'package:hbzs/router/loadPage.dart';
 import 'package:hbzs/router/myinfo.dart';
+import 'package:hbzs/router/sendText.dart';
 import 'package:hbzs/util/nosplash.dart';
 import 'package:hbzs/util/see.dart';
 
@@ -95,6 +96,7 @@ class MyApp extends StatelessWidget {
         '/see':(context) => See(),
         '/avator':(context) => Avator(),
         '/calendar':(context) => Calendar(),
+        '/sendtext':(context) => SendText()
       },
       
       home: LoadPage(),

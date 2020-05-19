@@ -118,7 +118,7 @@ class Card extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.only(left: 25.0, top: 8),
                       child: Text(
-                        Global.xueyuan+Global.zhuanye+Global.banji,
+                        Global.xueyuan!=null?(Global.xueyuan+Global.zhuanye+Global.banji):"",
                         overflow: TextOverflow.fade,
                         maxLines: 1,
                         style: TextStyle(
