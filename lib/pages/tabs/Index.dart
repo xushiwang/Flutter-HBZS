@@ -230,11 +230,11 @@ class _IndexPageState extends State<IndexPage> {
               ],
             )),
             onRefresh: () async {
-               getHttp().then((val) {
-      setState(() {
-        formList = val.toList();
-      });
-    });
+              getHttp().then((val) {
+                setState(() {
+                  formList = val.toList();
+                });
+              });
               getHttp1().then((val) {
                 setState(() {
                   formList1 = val.toList();

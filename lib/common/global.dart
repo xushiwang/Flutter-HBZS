@@ -1,9 +1,11 @@
 class Global {
+  static bool finger = false;
   static String host = "192.168.1.9";
   static String port = "8080";
   static String account; //我的学号
   static String account_2; //Ta的学号
   static String secret;
+  static String secret_2;
   static String nickname; //姓名
   static String xueyuan;
   static String zhuanye;
@@ -28,4 +30,5 @@ class Global {
   static String protrol_url = "https://www.hbxy.xyz/jwxt/tiaoKuan.html";
   static String calendar_url;
   static String get_week = "https://xxzx.bjtuhbxy.edu.cn/wxApplets/spaces/week";
+  
 }

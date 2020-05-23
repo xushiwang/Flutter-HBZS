@@ -3,6 +3,7 @@ import 'package:hbzs/res/ShowImage.dart';
 import 'package:hbzs/res/ShowMD.dart';
 import 'package:hbzs/res/calendar.dart';
 import 'package:hbzs/router/Send.dart';
+import 'package:hbzs/router/account.dart';
 import 'package:hbzs/router/avator.dart';
 import 'package:hbzs/router/echarts.dart';
 import 'package:hbzs/router/list_cet.dart';
@@ -96,9 +97,9 @@ class MyApp extends StatelessWidget {
         '/see':(context) => See(),
         '/avator':(context) => Avator(),
         '/calendar':(context) => Calendar(),
-        '/sendtext':(context) => SendText()
+        '/sendtext':(context) => SendText(),
+        '/account':(context) => Account()
       },
-      
       home: LoadPage(),
     );
   }

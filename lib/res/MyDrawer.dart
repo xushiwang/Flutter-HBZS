@@ -55,7 +55,7 @@ class MyDrawer extends StatelessWidget {
               title: Text('账号与安全'),
               onTap: (){
                 print('点击了账号与安全');
-                Navigator.pushNamed(context, '/xifu');
+                Navigator.pushNamed(context, '/account');
               },
             ),
             ListTile(

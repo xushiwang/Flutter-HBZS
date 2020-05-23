@@ -4,7 +4,10 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:hbzs/common/global.dart';
 import 'package:hbzs/res/assets.dart';
+import 'package:local_auth/auth_strings.dart';
+import 'package:local_auth/local_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toast/toast.dart';
 
 class LoadPage extends StatefulWidget {
   LoadPage({Key key}) : super(key: key);
@@ -16,6 +19,8 @@ class LoadPage extends StatefulWidget {
 class _LoadPageState extends State<LoadPage> {
   var flag;
   String avator_img;
+  var localAuth = LocalAuthentication();
+    
   
   @override
   void initState() {
@@ -28,24 +33,62 @@ class _LoadPageState extends State<LoadPage> {
     Future.delayed(Duration(seconds: 3), () {
       //获取个人信息 班级专业 学院等
       net();
-      (Global.account != null && Global.account != "")
+      if(Global.finger != null?Global.finger:false){//开启了指纹
+         auth(localAuth);
+      }else{
+        (Global.account != null && Global.account != "")
           ? Navigator.of(context).pushReplacementNamed('/tabs')
           : Navigator.of(context).pushReplacementNamed('/login');
-    });
+    }});
   }
 
   init() async {
     //获取姓名 学号 头像地址
     final prefs = await SharedPreferences.getInstance();
-    flag = prefs.getString("account");
+    Global.account = prefs.getString("account");
+    Global.account_2 = prefs.getString("account_2");
+    Global.secret_2 = prefs.getString("secret_2");
     avator_img = prefs.getString("avator_img");
+    Global.finger = prefs.getBool("finger");
     Global.nickname = prefs.get("name");
-    Global.account = flag;
+    print(Global.finger);
     //默认头像
     avator_img != null
         ? Global.avator_img_url = avator_img
         : Global.avator_img_url = "";
     print("缓存用户学号："+ Global.account);
+  }
+  auth(localAuth) async {
+    //下面是汉化
+    const andStrings = const AndroidAuthMessages(
+      cancelButton: '密码登录',
+      goToSettingsButton: '去设置',
+      fingerprintNotRecognized: '指纹识别失败',
+      goToSettingsDescription: '请设置指纹.',
+      fingerprintHint: '指纹',
+      fingerprintSuccess: '指纹识别成功',
+      signInTitle: '指纹验证',
+      fingerprintRequiredTitle: '请先录入指纹!',
+    );
+    try {
+      bool didAuthenticate = await localAuth.authenticateWithBiometrics(
+          localizedReason: '扫描指纹进行身份识别',
+          useErrorDialogs: false,
+          stickyAuth: true,
+          androidAuthStrings: andStrings);
+      if (didAuthenticate == true) {
+        Toast.show("认证成功", context);
+         (Global.account != null && Global.account != "")
+          ? Navigator.of(context).pushReplacementNamed('/tabs')
+          : Navigator.of(context).pushReplacementNamed('/login');
+      
+      } else {
+        Toast.show("认证失败", context);
+        Navigator.of(context).pushReplacementNamed('/login');
+      }
+    } catch (e) {
+      Toast.show("不能支持验证", context);
+    }
   }
 
   Future<void> net() async {
