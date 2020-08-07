@@ -1,4 +1,7 @@
 # 海滨助手Flutter
+<p>
+    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/xushiwang/Flutter-HBZS">
+</p>
 ## 特别鸣谢
 
 
